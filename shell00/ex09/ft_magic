@@ -1,0 +1,7 @@
+# Usage:
+# Compile ft_magic to a compiled mgc file
+# file -C -m ft_magic
+# Use file to check files
+# file -m ft_magic.mgc <file_to_test>
+
+41 string 42 42 file
