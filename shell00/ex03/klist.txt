@@ -1,4 +1,5 @@
-    Name                Cache name                                 Expires
-* lxu@42ADEL.ORG.AU   API:322DE76A-DFD6-4B71-817F-5A984B0A524E   Nov 22 22:27:30 2021
-  lxu@42ADEL.ORG.AU   API:DD4A0BF4-75A7-4277-8C97-2322973925FA   Nov 22 19:53:06 2021
-  lxu@42ADEL.ORG.AU   API:77FCB47B-8165-47C5-B7C2-4558D640D75B   Nov 22 18:40:26 2021
+Credentials cache: API:CAF9C847-E4EE-4CD9-A8BA-C9327C3DC827
+        Principal: lxu@42ADEL.ORG.AU
+
+  Issued                Expires               Principal
+Nov 22 15:52:31 2021  Nov 23 01:52:31 2021  krbtgt/42ADEL.ORG.AU@42ADEL.ORG.AU
