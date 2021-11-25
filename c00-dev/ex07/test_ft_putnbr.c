@@ -5,7 +5,7 @@ void ft_putnbr(int nb);
 
 int main(void)
 {
-	printf("Test case | Returned answer\n");
+	printf("-Test case- | -Returned answer-\n");
 	write(1, "0           | ", 14);
 	ft_putnbr(0);
 	printf("\n");
