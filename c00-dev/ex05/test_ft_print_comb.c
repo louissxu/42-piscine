@@ -1,3 +1,4 @@
+#include "ft_print_comb.c"
 #include <stdio.h>
 
 void ft_print_comb(void);
