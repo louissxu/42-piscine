@@ -5,11 +5,9 @@ void ft_print_combn(int n);
 
 int main(void)
 {
-	/*
 	printf("Testing ft_print_combn(0)\n");
 	printf("-------------------------\n");
 	ft_print_combn(0);
-	*/
 	
 	printf("\n");
 	printf("Testing ft_print_combn(1)\n");
