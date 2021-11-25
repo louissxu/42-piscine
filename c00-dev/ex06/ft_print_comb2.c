@@ -6,12 +6,11 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:43:30 by lxu               #+#    #+#             */
-/*   Updated: 2021/11/25 18:10:27 by lxu              ###   ########.fr       */
+/*   Updated: 2021/11/25 18:22:23 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 /* Note. Watch the endian-ness here. The 'one' column is stored in
  * column [1]. While the 'tens' is stored in column [0]
