@@ -6,15 +6,12 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:43:30 by lxu               #+#    #+#             */
-/*   Updated: 2021/11/25 18:22:23 by lxu              ###   ########.fr       */
+/*   Updated: 2021/11/28 18:39:24 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-/* Note. Watch the endian-ness here. The 'one' column is stored in
- * column [1]. While the 'tens' is stored in column [0]
- * ie, the endianness is reversed to make the printing easier */
 void	increment_number(char *ptr_num)
 {	
 	if (ptr_num[1] < '9')
