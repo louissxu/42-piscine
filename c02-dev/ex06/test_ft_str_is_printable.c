@@ -12,4 +12,4 @@ int main(void)
 	printf("Test string: \" ~!\"{|}\"      (1): %d\n", ft_str_is_printable(" ~!\"{|}"));
 	printf("Test string: \"\\t\" (tab)     (0): %d\n", ft_str_is_printable("\n"));
 	printf("Test string: \"\\n\" (newline) (0): %d\n", ft_str_is_printable("\t"));
-
+}
