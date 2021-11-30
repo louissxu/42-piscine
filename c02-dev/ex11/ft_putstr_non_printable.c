@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 02:19:24 by lxu               #+#    #+#             */
-/*   Updated: 2021/11/29 02:20:10 by lxu              ###   ########.fr       */
+/*   Updated: 2021/11/30 22:18:52 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,10 @@ int	is_printable(char c)
 
 char	int_to_hex_char(int num)
 {
-	if (num >= 0 && num <= 9)
-		return ('0' + num);
-	else if (num < 16)
-		return ('a' + num - 10);
-	else
-		return ('!');
+	char *hex_chars;
+
+	hex_chars = "0123456789abcdef";
+	return (hex_chars[num]);	
 }
 
 void	print_escaped_char(char c)
