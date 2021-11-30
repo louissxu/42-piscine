@@ -6,33 +6,24 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 22:03:15 by lxu               #+#    #+#             */
-/*   Updated: 2021/11/28 22:05:59 by lxu              ###   ########.fr       */
+/*   Updated: 2021/11/30 22:25:09 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int				terminate_string;
 	unsigned int	i;
 
-	terminate_string = 0;
 	i = 0;
-	while (i < n)
+	while (src[i] && i < n)
 	{
-		if (src[i])
-			dest[i] = src[i];
-		else
-		{
-			terminate_string = 1;
-			break ;
-		}
+		dest[i] = src[i];
 		i++;
 	}
-	if (terminate_string)
+	while (i < n)
 	{
-		while (dest[i])
-			dest[i] = '\0';
-			i++;
+		dest[i] = '\0';
+		i++;
 	}
 	return (dest);
 }
