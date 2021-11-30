@@ -6,28 +6,30 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 22:38:08 by lxu               #+#    #+#             */
-/*   Updated: 2021/11/30 22:39:38 by lxu              ###   ########.fr       */
+/*   Updated: 2021/11/30 22:51:37 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	int	tally;
+	int	i;
 
-	tally = 0;
-	while (*s1)
+	i = 0;
+	while (s1[i] && s2[i])
 	{
-		tally += *s1;
-		s1++;
+		if (s1[i] > s2[i])
+			return (1);
+		if (s1[i] < s2[i])
+			return (-1);
+		else
+			i++;
 	}
-	while (*s2)
+	if (s1[i] == '\0' && s2[i] == '\0')
 	{
-		tally -= *s2;
-		s2++;
+		return (0);
 	}
-	if (tally > 0)
+	else if (s1[i])
 		return (1);
-	if (tally < 0)
+	else
 		return (-1);
-	return (0);
 }
