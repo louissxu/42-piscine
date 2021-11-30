@@ -1,7 +1,19 @@
-char *ft_strncat(char *dest, char *src, unsigned int nb)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/01 01:18:53 by lxu               #+#    #+#             */
+/*   Updated: 2021/12/01 01:18:54 by lxu              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int src_i;
-	int dest_i;
+	int	src_i;
+	int	dest_i;
 
 	dest_i = 0;
 	while (dest[dest_i])
