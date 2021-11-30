@@ -3,10 +3,10 @@
 
 int main(void)
 {
-	printf("Printing: \"Hello World\"\n");
+	printf("Printing: \"Hello ~ World\"\n");
 	printf("Result  : ");
 	fflush(stdout);
-	ft_putstr_non_printable("Hello World");
+	ft_putstr_non_printable("Hello ~ World");
 	printf("\n");
 
 	printf("Printing: \"Line \\n break\"\n");
@@ -26,5 +26,5 @@ int main(void)
 	fflush(stdout);
 	ft_putstr_non_printable("Null \0 char");
 	printf("\n");
-
+	
 }
