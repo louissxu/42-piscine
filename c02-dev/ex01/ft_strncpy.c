@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 22:03:15 by lxu               #+#    #+#             */
-/*   Updated: 2021/11/28 22:05:59 by lxu              ###   ########.fr       */
+/*   Updated: 2021/11/30 19:57:02 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	}
 	if (terminate_string)
 	{
-		while (dest[i])
+		while (i < n)
+		{
 			dest[i] = '\0';
 			i++;
+		}
 	}
 	return (dest);
 }
