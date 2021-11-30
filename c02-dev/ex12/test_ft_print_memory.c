@@ -3,7 +3,7 @@
 
 int main(void)
 {
-	char* a = "/bcdefg";
+	char* a = "/bcdefg~ fab";
 	unsigned int size = 34;
 	ft_print_memory(a, size);
 	return (1);
