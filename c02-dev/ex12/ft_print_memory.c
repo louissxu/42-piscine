@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 17:19:35 by lxu               #+#    #+#             */
-/*   Updated: 2021/11/30 17:30:58 by lxu              ###   ########.fr       */
+/*   Updated: 2021/11/30 21:43:28 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,11 @@ void	*ft_print_memory(void *addr, unsigned int size)
 		while (++counter < 16)
 		{	
 			if ((unsigned int)counter < size)
+			{
 				print_byte_as_hex(addr + counter);
-			else
-				write(1, "  ", 2);
-			if (counter % 2 != 0)
-				write(1, " ", 1);
+				if (counter % 2 != 0)
+					write(1, " ", 1);
+			}
 		}
 		while ((++counter - 17) < 16 && (unsigned int)(counter - 17) < size)
 			print_byte_as_alpha(addr + counter - 17);
