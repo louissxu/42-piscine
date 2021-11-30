@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 01:48:49 by lxu               #+#    #+#             */
-/*   Updated: 2021/11/30 20:31:52 by lxu              ###   ########.fr       */
+/*   Updated: 2021/11/30 20:39:43 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 
 	counter = 0;
 	source_size = 0;
-
 	while (dest[counter] && counter < (size - 1) && src[counter])
 	{
 		dest[counter] = src[counter];
@@ -28,7 +27,7 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 		dest[counter] = '\0';
 		counter++;
 	}
-	while(src[source_size])
+	while (src[source_size])
 	{
 		source_size++;
 	}
