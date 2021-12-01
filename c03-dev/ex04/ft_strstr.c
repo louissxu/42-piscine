@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 01:18:21 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/01 01:18:22 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/01 16:54:09 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	is_match(char *s1, char *s2)
 	return (1);
 }
 
-char	*ft_strstr(char *str, char*to_find)
+char	*ft_strstr(char *str, char *to_find)
 {
 	if (*to_find == '\0')
 	{
