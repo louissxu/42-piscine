@@ -27,4 +27,16 @@ int main(void)
 	ft_putstr_non_printable("Null \0 char");
 	printf("\n");
 	
+	char all_chars[128];
+	char a = '~';
+	while (a)
+	{
+		all_chars[(int)a] = a;
+		a--;
+	}
+	all_chars[0] = '~' + 1;
+	all_chars[127] = '~' + 1;
+	all_chars[127] = '\0';
+	ft_putstr_non_printable(all_chars);
+
 }
