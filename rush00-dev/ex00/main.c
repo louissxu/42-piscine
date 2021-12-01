@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 21:06:35 by lxu               #+#    #+#             */
-/*   Updated: 2021/11/27 21:06:42 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/01 17:17:45 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,26 @@
 
 void	rush(int x, int y);
 
-int simple_atoi(char *str)
+int	simple_atoi(char *str)
 {
-	int val;
+	int	val;
 
 	val = 0;
-	while(*str)
+	while (*str)
 	{
 		if (*str < '0' || *str > '9')
 			return (-1);
 		val = val * 10;
-		val += val + (*str - '0');
+		val = val + (*str - '0');
 		str++;
 	}
 	return (val);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	if (argc != 3)
 	{
