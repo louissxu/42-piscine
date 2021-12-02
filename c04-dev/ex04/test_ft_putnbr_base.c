@@ -27,4 +27,35 @@ int main(void)
 	fflush(stdout);
 	ft_putnbr_base(0, "0123456789");
 	printf("\nCorrect answer: 0\n");
+	
+	printf("\nTesting: empty base\nAnswer: ");
+	fflush(stdout);
+	ft_putnbr_base(10, "");
+	printf("\nCorrect answer: <nothing - 0 length base>\n");
+
+	printf("\nTesting: 10, 1\nAnswer: ");
+	fflush(stdout);
+	ft_putnbr_base(10, "0");
+	printf("\nCorrect answer: <nothing - 1 length base>\n");
+
+	printf("\nTesting: 10, 0123456782\nAnswer: ");
+	fflush(stdout);
+	ft_putnbr_base(10, "0123456782");
+	printf("\nCorrect answer: <nothing - repeated base char>\n");
+
+	printf("\nTesting: 10, 0123+3456\nAnswer: ");
+	fflush(stdout);
+	ft_putnbr_base(10, "0123+456");
+	printf("\nCorrect answer: <nothing - base contains + >\n");
+
+	printf("\nTesting: 10, 0123-456\nAnswer: ");
+	fflush(stdout);
+	ft_putnbr_base(10, "0123-456");
+	printf("\nCorrect answer: <nothing - base contains - >\n");
+
+	printf("\nTesting: 1234567890, 123456!@#$\nAnswer: ");
+	fflush(stdout);
+	ft_putnbr_base(1234567890, "123456!@#$");
+	printf("\nCorrect answer: 23456!@#$1\n");
+
 }
