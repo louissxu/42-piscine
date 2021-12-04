@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 17:29:02 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/02 18:12:22 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/04 11:04:44 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	ft_putnbr_base(int nbr, char *base)
 	long int	nbr_l;
 
 	if (nbr == 0)
-		write(1, "0", 1);
+		write(1, base, 1);
 	radix_size = string_okay(base);
 	if (radix_size == -1)
 		return ;
