@@ -28,6 +28,11 @@ int main(void)
 	ft_putnbr_base(0, "0123456789");
 	printf("\nCorrect answer: 0\n");
 	
+	printf("\nTesting: 0, abcdefgh\nAnswer: ");
+	fflush(stdout);
+	ft_putnbr_base(0, "abcdefg");
+	printf("\nCorrect answer: a\n");
+	
 	printf("\nTesting: empty base\nAnswer: ");
 	fflush(stdout);
 	ft_putnbr_base(10, "");
