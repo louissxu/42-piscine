@@ -16,13 +16,13 @@
 /*
  * Function: root
  * --------------
- * The root procedural parameter
+ * The root procedural parameter.
  *
- * Generates the root node for the backtracking algorithm
+ * Generates the root node for the backtracking algorithm.
  *
  * Takes the passed in grid and populates the sufficient number of cells with
  * null nodes. (For this implementation, zero is used to represent null/
- * unpopulated nodes)
+ * unpopulated nodes).
  */
 
 void	root(int *grid, int grid_size)
@@ -40,7 +40,7 @@ void	root(int *grid, int grid_size)
 /*
  * Function: reject
  * ---------------- 
- * Reject procedural parameter
+ * Reject procedural parameter.
  *
  * The reject function for the backtrcking algorithm.
  *
@@ -62,7 +62,7 @@ int	reject(int *grid, int grid_size, int *constraints)
 /*
  * Function: accept
  * ----------------
- * Accept procedural parameter
+ * Accept procedural parameter.
  *
  * The accept function for the backtracking algorithm.
  *
@@ -89,11 +89,11 @@ int	accept(int *grid, int grid_size, int *constraints)
 /*
  * Function: first
  * ---------------
- * First procedural parameter
+ * First procedural parameter.
  *
  * Generates the first extension of the current candidate. Ie it assumes the
  * curent position is good and adds another cell going deeper down this branch
- * of the tree
+ * of the tree.
  * */
 int	first(int *grid, int grid_size, int active_cell)
 {
@@ -112,14 +112,14 @@ int	first(int *grid, int grid_size, int active_cell)
 /*
  * Function: next
  * --------------
- * Next procedural parameter
+ * Next procedural parameter.
  *
  * Generates the next alternative candidate from the current position. Ie the
  * current position is bad so it goes sideways to the adjacent branch on the
  * tree.
  *
  * Once all branches at this level have been explored it returns -1 to signal
- * that there are no valid solutions left on this tree
+ * that there are no valid solutions left on this tree.
  */
 int	next(int *grid, int grid_size, int active_cell)
 {

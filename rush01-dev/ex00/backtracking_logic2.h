@@ -16,7 +16,7 @@
 /*
  * Function: bt_core
  * -----------------
- * The core of the backtracking procedure
+ * The core of the backtracking procedure.
  *
  * This function is used recursively to backtrack through the nodes of the tree
  * to be searched. See readme for more details.
@@ -60,14 +60,14 @@ int	bt_core(int	*grid, int grid_size, int *constraints, int active_cell)
 /*
  * Funcntion: bt_solve_puzzle
  * --------------------------
- * The entry function into the backtracking
+ * The entry function into the backtracking.
  *
  * Responsible to initialise the space in stack that will hold the grid as it is
  * being worked on. Also calls initialise then populates the constraints array
  * by calling calling the parser.
  *
  * Then starts backtracking by calling bt_core and returns the result back to
- * the caller of this function
+ * the caller of this function.
  *
  * constraints_str: The pointer to the start of the string of constraints to be
  *                  parsed.

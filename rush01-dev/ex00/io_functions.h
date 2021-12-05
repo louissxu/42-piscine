@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 19:46:45 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/05 23:00:23 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/05 23:23:34 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,16 @@ void	print_state_compliant(int *grid, int grid_size)
  *
  *                 The order of the values is as discussed in the
  *                 skyscraper_backtracking_solver.h file and adheres to the same
- *                 conventions
+ *                 conventions.
  *
  * returns: The grid size if the string was valid to parse (ie constraints / 4).
  *          If it was not valid, returns -1 as error code.
  *
  * Extra sanity checks on the passed in string performed at the bottom
  * If fails, returns -1 error code.
- * Checks that the constraints is a multiple of 4
- * Checks that all the constraints are in range: 0 <= constraint[i] <= grid_size
+ * Checks that the constraints is a multiple of 4.
+ * Checks that all the constraints are in range:
+ *   0 <= constraint[i] <= grid_size
  */
 int	parse_constraints(int *constraints, char *constraint_str)
 {
