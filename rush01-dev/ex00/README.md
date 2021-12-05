@@ -58,7 +58,7 @@ project specifications: top, bottom, left, right
 Top and bottom are in book read order (left to right)
 Left and right are in top to bottom order
 
-ie: top-1, top-2, top-3, top-4, bottom-1, ... bottom-4, ... left-1, ...
+Ie: top-1, top-2, top-3, top-4, bottom-1, ... bottom-4, ... left-1, ...
 left-4, ... right-1, ... right-4
 
     "4 3 2 1  1 2 2 2  4 3 2 1  1 2 2 2" represents:
@@ -74,7 +74,7 @@ left-4, ... right-1, ... right-4
 
 Grid is represented within the program as a 1d array.
 The grid is unwrapped in book read order. The (row, col) position is removed
-out from the grid mathmatically (using integer division and remainder
+out from the grid mathematically (using integer division and remainder
 divison) to calculate where it lies in the grid
 
     grid: [cell 0, cell 1, cell 2, cell 3, cell 4, ...]
