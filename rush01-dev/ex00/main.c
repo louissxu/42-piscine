@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 18:47:18 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/05 21:46:24 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/06 00:37:38 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		write(2, "Usage ./solve_puzzle \"<constraints\"", 20);
+		write(2, "Usage ./solve_puzzle \"<constraints>\"\n", 37);
 		return (1);
 	}
 	return_value = bt_solve_puzzle(argv[1]);
