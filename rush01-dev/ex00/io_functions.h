@@ -6,46 +6,12 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 19:46:45 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/05 22:12:33 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/05 23:00:23 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef IO_FUNCTIONS_H
 # define IO_FUNCTIONS_H
-
-# include <stdio.h>
-
-/*
- * Function: print_state
- * ---------------------
- * Prints the current state passed into it as a single line. Primarily for
- * debuging use.
- *
- * grid: Grid in standard format (see readme)
- * grid_size
-
-int	print_state(int *grid, int grid_size, int *constraints, int active_cell)
-{
-	int	i;
-
-	printf("STATE - Grid Size: %d  Active Cell: %d  Grid: ", \
-			grid_size, active_cell);
-	i = 0;
-	while (i < grid_size * grid_size)
-	{
-		printf("%d ", grid[i]);
-		i++;
-	}
-	printf(" Constraints: ");
-	i = 0;
-	while (i < grid_size * 4)
-	{
-		printf("%d ", constraints[i]);
-		i++;
-	}
-	printf("\n");
-	return (0);
-}
 
 /*
  * Function: print_state_compliant
@@ -135,5 +101,46 @@ int	parse_constraints(int *constraints, char *constraint_str)
 	}
 	return (grid_size);
 }
+
+/*
+# include <stdio.h>
+*/
+
+/*
+ * Function: print_state
+ * ---------------------
+ * Prints the current state passed into it as a single line. Primarily for
+ * debuging use.
+ *
+ * grid: Grid in standard format (see readme).
+ * grid_size: The size of the grid (width and height).
+ * constraints: Pointer to the list of constraints.
+ * active_cell: The active cell where insertions/updates are being made.
+ */
+
+/*
+int	print_state(int *grid, int grid_size, int *constraints, int active_cell)
+{
+	int	i;
+
+	printf("STATE - Grid Size: %d  Active Cell: %d  Grid: ", \
+			grid_size, active_cell);
+	i = 0;
+	while (i < grid_size * grid_size)
+	{
+		printf("%d ", grid[i]);
+		i++;
+	}
+	printf(" Constraints: ");
+	i = 0;
+	while (i < grid_size * 4)
+	{
+		printf("%d ", constraints[i]);
+		i++;
+	}
+	printf("\n");
+	return (0);
+}
+*/
 
 #endif

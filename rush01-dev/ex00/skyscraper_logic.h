@@ -6,13 +6,36 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 19:47:16 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/05 22:08:48 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/05 23:19:21 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SKYSCRAPER_LOGIC_H
 # define SKYSCRAPER_LOGIC_H
 
+/*
+ * Function: score_line_min
+ * ------------------------
+ * Calculates the score of a line in a skyscraper
+ *
+ * line: A array of the cells being viewed The cells are "viewed" from line[0]
+ * to line[max]
+ * line_length: To know max length of array.
+ *
+ * returns: The score that this arrangement would score.
+ *
+ * Note: Extra check was added to become score_line_min. It returns the
+ * /minimum/ value possible so that it doesn't return a high value which might
+ * cause a reject when the state is actually fine as it would be blocked later
+ * by a high block.
+ *
+ * eg consider [0, 0, 2, 3] would score a 2
+ * but later when it becomes [4, 1, 2, 3] it scores a 1
+ *
+ * Therefore, if an empty space (0) is encountered it assumes that this will be
+ * filled by a high block and occlude everything behind it and therefore returns
+ * the count thus far.
+ */
 int	score_line_min(int *line, int line_length)
 {
 	int	i;
@@ -38,15 +61,24 @@ int	score_line_min(int *line, int line_length)
 	return (score);
 }
 
-/* Checks whether a line is valid
+/* 
+ * Function: valid_line
+ * --------------------
+ * Checks whether a line is "valid" by it's merits alone.
+ *
+ * The checks it performs are:
+ *   Whether there are any unfilled spaces (0) and,
+ *   Whether there are any duplicates eg [1, 2, 4, 1] which are forbidden.
+ *
+ * line: An array of cells being "viewed" from line[0] to line[max].
+ * line_length: The length of the line array.
  * 
-
-	returns -1 if invalid (numbers clash)
-	0 if could be valid (has a zero in the line)
-	1 if valid (actual valid)
-
+ * returns: -1 If invalid (numbers clashing)
+ *          0 For partial candidate (ie there is a zero in the line, therefore
+ *          it /could/ be okay depending on how it's filled, but it isn't a
+ *          valid *solution* line.
+ *          1 Is valid (actually valid. so all cells are filled and no clashes).
  */
-
 int	valid_line(int *line, int line_length)
 {
 	int	i;
@@ -74,6 +106,31 @@ int	valid_line(int *line, int line_length)
 /* Checks whether a line in the grid is valid
  * Param:
  * dir: 0 is up, 1 is down, 2 is left, 3 is right
+ */
+
+/*
+ * Function: check_line_dir
+ * ------------------------
+ * Checks whether a line is valid when given a entire grid and the location of
+ * the line in the grid.
+ *
+ * grid: Pointer to the board state.
+ * grid_size: The height/width of the grid.
+ * constraint_num: Originally the line number (l_num) and direction (dir) were
+ *                 passed in as parameters. But for norm reasons (too many args
+ *                 this has been passed in as the constraint_num and the math
+ *                 is performed here to get l_num and dir.
+ * dir: The direction you are looking from encoded as follows
+ *   0 is from the top.
+ *   1 is from the bottom.
+ *   2 is from the left.
+ *   3 is from thte right.
+ * l_num: The line number of that side. Top and bottom are read left to right
+ *        (book read). Left and right are numbered top to bottom.
+ * l_val: The correct value of that view.
+ *
+ * returns: True (1) if that line is valid.
+ *          False (0) if that line is invalid.
  */
 int	check_line_dir(int *grid, int grid_size, int constraint_num, int l_val)
 {
@@ -104,13 +161,16 @@ int	check_line_dir(int *grid, int grid_size, int constraint_num, int l_val)
 	return (0);
 }
 
-/* Checks if puzzle is solved according to provided constraints
- * Param:
- * constraints: a array of values. in same order as described in subject.pdf
- *     ups left to right, then
- *     downs left to right, then 
- *     lefts top to bottom, 
- *     then rights top to bottom
+/*
+ * Function: is_puzzle_solved
+ * --------------------------
+ * Checks if the puzzle is completely solved.
+ *
+ * Checks all the constraint views from all the lines by using check_line_dir
+ *
+ * returns: True (1) if puzzle is solved.
+ *          False (0) i the puzzle is not solved (if any of the lines are not
+ *          valid as per check_line_dir).
  */
 int	is_puzzle_solved(int *grid, int grid_size, int *constraints)
 {
