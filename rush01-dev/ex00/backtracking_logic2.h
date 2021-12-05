@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 19:45:06 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/05 19:45:59 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/05 22:07:23 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ int	bt_core(int	*grid, int grid_size, int *constraints, int active_cell)
 		active_cell = next(grid, grid_size, active_cell);
 	}		
 	if (solution_found)
+	{
 		return (1);
+	}
 	else
 		return (0);
 }
@@ -48,6 +50,10 @@ int	bt_solve_puzzle(char *constraints_str)
 	int	i;
 
 	grid_size = parse_constraints(constraints, constraints_str);
+	if (grid_size <= 0)
+	{
+		return (0);
+	}
 	i = 0;
 	while (i < grid_size * grid_size)
 	{
