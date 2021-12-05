@@ -4,9 +4,11 @@
 int	main(int argc, char **argv)
 {
 	int return_value;
-	int constraints[9*9];
+	int constraints[9*4];
 	int i;
 	int grid_size;
+	int grid[9*9];
+	//int grid[] = {1, 2, 3, 4,  2, 3, 4, 1,  1, 1, 1, 1,  1, 1, 1, 1};
 
 	if (argc != 2)
 	{
@@ -30,16 +32,42 @@ int	main(int argc, char **argv)
 		}
 	}
 	grid_size = i / 4;
-	printf("number of constraints is %d\n", i);
-	printf("the constraints list is:\n");
-	printf("the grid size is %d\n", grid_size);
-	i = 0;
-	while (i < grid_size * 4)
-	{
-		printf("constraint[%d]: %d,\n", i, constraints[i]);
-		i++;
-	}	
 
+	i = 0;
+	while (i < grid_size * grid_size)
+	{
+	grid[i] = 1;
+	i++;
+	}
+	
+	int is_solved = is_puzzle_solved(grid, grid_size, constraints);	
+	int checked_everything;
+	while (is_solved != 1)
+	{
+		checked_everything = bf_next(grid, grid_size, -1);
+		if (checked_everything == 0)
+		{
+			write (1, "There is no valid solution to these constraints\n", 48);
+			return (0);
+		}
+		i = 0;
+		printf("Checking: ");
+		while (i < grid_size * grid_size)
+		{
+			printf("%d ", grid[i]);
+			i++;
+		}
+		printf("\n");
+		is_solved = is_puzzle_solved(grid, grid_size, constraints);
+	}
+	i = 0;
+	write(1, "Solution found!", 10);
+	while (i < grid_size * grid_size)
+	{
+		printf("%d, ", grid[i]);
+		i++;
+	}
+	
 	//return_value = solve_puzzle(argv[1]);
 	return_value = 0;
 	return (return_value);
