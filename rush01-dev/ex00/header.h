@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 #define MAX_GRID_SIZE 4
 /* Would use VLA, but not allowed by norm */
 
@@ -133,12 +134,84 @@ int bf_next(int* grid, int grid_size, int insert_location)
 	return (1);
 }
 
-int	bf_solve_puzzle(char **argv)
+int parse_constraints(int* constraints, char* constraint_str)
 {
-	printf("Hello world");
-	argv++;
-	return (0);
+	int i;
+	int grid_size;
+
+	//parse constraints
+	i = 0;
+	while(*constraint_str)
+	{
+		if (*constraint_str == ' ')
+		{
+			constraint_str++;
+		}
+		else
+		{
+			constraints[i] = (int)*constraint_str - '0';
+			constraint_str++;
+			i++;
+		}
+	}
+	grid_size = i / 4;
+
+	return(grid_size);
 }
+
+int	bf_solve_puzzle(char *constraints_str)
+{
+	int return_value;
+	int constraints[9*4];
+	int i;
+	int grid_size;
+	int grid[9*9];
+	//int grid[] = {1, 2, 3, 4,  2, 3, 4, 1,  1, 1, 1, 1,  1, 1, 1, 1};
+
+	printf("Solving puzzle using brute force\n");
+	grid_size = parse_constraints(constraints, constraints_str);
+	
+	//Populate empty grid
+	i = 0;
+	while (i < grid_size * grid_size)
+	{
+	grid[i] = 1;
+	i++;
+	}
+	
+	int is_solved = is_puzzle_solved(grid, grid_size, constraints);	
+	int checked_everything;
+	while (is_solved != 1)
+	{
+		checked_everything = bf_next(grid, grid_size, -1);
+		if (checked_everything == 0)
+		{
+			write (1, "There is no valid solution to these constraints\n", 48);
+			return (0);
+		}
+		i = 0;
+		printf("Checking: ");
+		while (i < grid_size * grid_size)
+		{
+			printf("%d ", grid[i]);
+			i++;
+		}
+		printf("\n");
+		is_solved = is_puzzle_solved(grid, grid_size, constraints);
+	}
+	i = 0;
+	write(1, "Solution found!", 10);
+	while (i < grid_size * grid_size)
+	{
+		printf("%d, ", grid[i]);
+		i++;
+	}
+	
+	//return_value = solve_puzzle(argv[1]);
+	return_value = 0;
+	return (return_value);
+}
+	
 
 /* Lol, didn't need this
 int sieve_simple_root(int dividend)
