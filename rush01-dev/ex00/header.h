@@ -3,6 +3,31 @@
 #define MAX_GRID_SIZE 4
 /* Would use VLA, but not allowed by norm */
 
+int print_state(int* grid, int grid_size, int* constraints, int active_cell)
+{
+	int i;
+	
+	printf("STATE - Grid Size: %d  Active Cell: %d  Grid: ", grid_size, active_cell);
+
+	i = 0;
+	while (i < grid_size * grid_size)
+	{
+		printf("%d ", grid[i]);
+		i++;
+	}
+
+	printf(" Constraints: ");
+	i = 0;
+	while (i < grid_size * 4)
+	{
+		printf("%d ", constraints[i]);
+		i++;
+	}
+	printf("\n");
+	
+	return (0);
+}
+
 int score_line(int *line, int line_length)
 {
 	int	i;
@@ -72,11 +97,46 @@ int check_line_dir(int* grid, int grid_size, int dir, int l_num, int l_val)
 			line[i] = grid[((l_num + 1) * grid_size) - i - 1];	
 		i++;
 	}
+	
+	/*
+	i = 0;
+	printf("dir: %d, l_num: %d, l_val: %d, line: ", dir, l_num, l_val);
+	while (i < grid_size)
+	{
+		printf("%d ", line[i]);
+		i++;
+	}
+	printf("\n");
+	*/
+
 	line_score = score_line(line, grid_size);
-	if (line_score == l_val && valid_line(line, grid_size == 1))
+	if (line_score <= l_val && valid_line(line, grid_size) == 1)
 	{
 		return (1);
 	}
+	return (0);
+}
+
+int is_puzzle_invalid(int* grid, int grid_size, int* constraints)
+{
+	int i;
+	int is_valid;
+
+	printf("\n\nChecking if puzzle is invalid\n");
+	print_state(grid, grid_size, constraints, 100);
+
+	i = 0;
+	while (i < (grid_size * 4))
+	{
+		is_valid = check_line_dir(grid, grid_size, i/grid_size, i%grid_size, constraints[i]);
+		//printf("Line is_valid: %d\n", is_valid);
+		if (is_valid == 0)
+		{
+			return (1);
+		}
+		i++;
+	}
+	
 	return (0);
 }
 
@@ -165,19 +225,21 @@ int	bf_solve_puzzle(char *constraints_str)
 	int constraints[9*4];
 	int i;
 	int grid_size;
-	int grid[9*9];
-	//int grid[] = {1, 2, 3, 4,  2, 3, 4, 1,  1, 1, 1, 1,  1, 1, 1, 1};
+	//int grid[9*9];
+	int grid[] = {1, 2, 3, 4,  1, 1, 1, 1,  1, 1, 1, 1,  1, 1, 1, 1};
 
 	printf("Solving puzzle using brute force\n");
 	grid_size = parse_constraints(constraints, constraints_str);
 	
 	//Populate empty grid
+/*	
 	i = 0;
 	while (i < grid_size * grid_size)
 	{
 	grid[i] = 1;
 	i++;
 	}
+*/	
 	
 	int is_solved = is_puzzle_solved(grid, grid_size, constraints);	
 	int checked_everything;
@@ -211,7 +273,142 @@ int	bf_solve_puzzle(char *constraints_str)
 	return_value = 0;
 	return (return_value);
 }
+
+/* reject(P, c)
+ * returns true (1) if the partial candidate is not worth completing
+ */
+int reject(int* grid, int grid_size, int* constraints)
+{
+	int result;
+	result = is_puzzle_invalid(grid, grid_size, constraints);
+	printf("The result of reject is: %d\n", result);
+	if (result)
+	{
+		return (1);
+	}
+	return (0);
+}
+
+int accept(int* grid, int grid_size, int* constraints)
+{
+	int i;
+	int result;
+
+	printf("Running accept\n");
+
+	i = 0;
+	while (i < grid_size * grid_size)
+	{
+		if (grid[i] == 0 )
+		{
+			printf("The result of accept is 0 (as it found a 0)\n");
+			return (0);
+		}
+		i++;
+	}
+	result = is_puzzle_solved(grid, grid_size, constraints);
+	printf("The result of accept is: %d\n", result);
+	return (result);
+}
+
+int first(int* grid, int grid_size, int* constraints, int active_cell)
+{
+	printf("Running first at active cell %d     %d%d\n", active_cell, constraints[0], grid_size);
+	if (active_cell == (grid_size * grid_size) - 1)
+	{
+		printf("It's happening!! first has reached the end\n");
+		return (-100);
+	}
+	else
+	{
+		active_cell++;
+		grid[active_cell]++;
+		return active_cell;
+	}
+}
+
+int next(int* grid, int grid_size, int* constraints, int active_cell)
+{
+	printf("Running next at active cell %d       %d%d\n", active_cell, constraints[0], grid_size);
+	if (grid[active_cell] >= grid_size)
+	{
+		printf("It's happening!! next has reached max value\n");
+		grid[active_cell] = 0;
+		return (-100);
+	}
+	else
+	{
+		grid[active_cell]++;
+		return active_cell;
+	}
+}
+
+int bt_core(int* grid, int grid_size, int* constraints, int active_cell)
+{	
+	printf("Running iteration of bt_core\n");
+	print_state(grid, grid_size, constraints, active_cell);
+
+	int solution_found;
+
+	solution_found = 0;
+
+	if (reject(grid, grid_size, constraints))
+	{
+		printf("Rejecting\n");
+		return (0);
+	}
+	if (accept(grid, grid_size, constraints))
+	{
+		printf("Solution found!\n");
+		print_state(grid, grid_size, constraints, active_cell);
+		return (1);
+	}
+	active_cell = first(grid, grid_size, constraints, active_cell);
+
+	while(active_cell > -100)
+	{	
+		solution_found = bt_core(grid, grid_size, constraints, active_cell);
+		if (solution_found)
+		{
+			return(1);
+		}
+		active_cell = next(grid, grid_size, constraints, active_cell);
+	}		
+	printf("Exiting this stack frame\n");	
+	if (solution_found)
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
+}
+
+int bt_solve_puzzle(char *constraints_str)
+{
+	int constraints[9*4];
+	int grid_size;
+	int grid[9*9];
+	//int grid[] = {1, 2, 3, 4,  2, 3, 4, 1,  1, 1, 1, 1,  1, 1, 1, 1};
+	int return_value;
+	int i;
+
+	printf("Solving puzzle using backtracking\n");
+	grid_size = parse_constraints(constraints, constraints_str);
 	
+	i = 0;
+	while (i < grid_size * grid_size)
+	{
+		grid[i] = 0;
+		i++;
+	}
+
+	return_value = bt_core(grid, grid_size, constraints, -1);
+	return (return_value);
+}
+
+
 
 /* Lol, didn't need this
 int sieve_simple_root(int dividend)
