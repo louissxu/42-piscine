@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 18:47:18 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/05 18:47:56 by lxu              ###   ########.fr       */
+/*   Created: 2021/12/05 18:46:05 by lxu               #+#    #+#             */
+/*   Updated: 2021/12/05 19:47:37 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "skyscraper_backtracking_solver.h"
+#ifndef SKYSCRAPER_BACKTRACKING_SOLVER_H
+# define SKYSCRAPER_BACKTRACKING_SOLVER_H
+# include <unistd.h>
+# include "io_functions.h"
+# include "skyscraper_logic.h"
+# include "backtracking_logic1.h"
+# include "backtracking_logic2.h"
 
-int	main(int argc, char **argv)
-{
-	if (argc != 2)
-	{
-		write(2, "Usage ./solve_puzzle \"<constraints\"", 20);
-		return (1);
-	}
-	bt_solve_puzzle(argv[1]);
-	return (0);
-}
+#endif
