@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 17:56:16 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/02 22:03:22 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/06 12:52:34 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,3 @@ int	ft_atoi_base(char *str, char *base)
 		return (core_atoi_base(&str[i], base, radix) * is_positive);
 	return (0);
 }
-
-// can start with arbitrary amount of whitespace
-// can have arbitrary number of +/- signs
-// can have any number of numbers in the base
-// read until string stops following the rules
-//
-//don't handle over/underflow
