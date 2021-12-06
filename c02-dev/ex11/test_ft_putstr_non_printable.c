@@ -27,6 +27,12 @@ int main(void)
 	ft_putstr_non_printable("Null \0 char");
 	printf("\n");
 	
+	printf("Printing: \"Coucou\\ntu vas bien ?\"\n");
+	printf("Result  : ");
+	fflush(stdout);
+	ft_putstr_non_printable("Coucou\ntu vas bien ?");
+	printf("\n");
+	
 	char all_chars[128];
 	char a = '~';
 	while (a)
