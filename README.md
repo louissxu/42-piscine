@@ -31,6 +31,13 @@ The [project] folder is my "submission" folder of files in the state that I am s
 <td></td>
 </tr>
 
+<tr valign = "top">
+<td>C05 - Submission 1</td>
+<td>50%</td>
+<td>ex00: OK | ex01: OK | ex02: OK | ex03: OK | ex04: OK | ex05: OK | ex06: KO | ex07: Timeout | ex08: OK<td>
+<td>ex07: Not sure what a timeout error is. From deeptrace, all the tests pass and provide the correct solution. Maybe the solution is too inefficient and there is some upper ceiling of allowed compute time even if it passes all the tests?</td>
+</tr>
+
 </tbody>
 </table>
 
