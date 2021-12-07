@@ -6,14 +6,14 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 21:32:47 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/06 23:27:15 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/07 16:58:07 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int is_prime(int nb)
+int	is_prime(int nb)
 {
-	int i;
-	
+	int	i;
+
 	if (nb <= 2)
 	{
 		return (0);
@@ -32,7 +32,7 @@ int is_prime(int nb)
 
 int	ft_find_next_prime(int nb)
 {
-	int i;
+	int	i;
 
 	i = nb;
 	while (i <= 2147483647)
@@ -43,5 +43,5 @@ int	ft_find_next_prime(int nb)
 		}
 		i++;
 	}
-	return (0); 
+	return (0);
 }
