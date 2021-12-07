@@ -4,9 +4,9 @@
 
 Repository of my progress in the 42Adel November Piscine 2021.
 
-The &ltproject&gt-dev folder is my working directory for my project where I build the project. If you want to follow my git commits/changes etc you can see them in this folder. This is generally the most up to date repo including any changes I have made after submission (if I decided not to resubmit it). This directory also includes files that I would like to keep but are not able to be submitted (the subject pdf's, my test files, etc).
-h
-The &ltproject&gt folder is my "submission" folder of files in the state that I am submitting them to the vogsphere. The corresponding moulinette grading/scoring is below.
+The [project]-dev folder is my working directory for my project where I build the project. If you want to follow my git commits/changes etc you can see them in this folder. This is generally the most up to date repo including any changes I have made after submission (if I decided not to resubmit it). This directory also includes files that I would like to keep but are not able to be submitted (the subject pdf's, my test files, etc).
+
+The [project] folder is my "submission" folder of files in the state that I am submitting them to the vogsphere. The corresponding moulinette grading/scoring is below.
 
 <table border = "1" cellpadding = "4" cellspacing = "0">
 <thead><tr>
