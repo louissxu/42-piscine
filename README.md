@@ -19,28 +19,28 @@ The [project] folder is my "submission" folder of files in the state that I am s
 
 <tr valign = "top">
 <td>C04 - Submission 1</td>
-<td>70%</td>
+<td>70% (pass)</td>
 <td>ex00: OK | ex01: OK | ex02: OK | ex03: OK | ex04: KO | ex05: OK</td>
 <td>ex04: Char for 0 val was hardcoded as "0" char rather than base[0]</td>
 </tr>
 
 <tr valign = "top">
 <td>C04 - Submission 2</td>
-<td>100%</td>
+<td>100% (pass)</td>
 <td>ex00: OK | ex01: OK | ex02: OK | ex03: OK | ex04: OK | ex05: OK</td>
 <td></td>
 </tr>
 
 <tr valign = "top">
 <td>C05 - Submission 1</td>
-<td>50%</td>
+<td>50% (pass)</td>
 <td>ex00: OK | ex01: OK | ex02: OK | ex03: OK | ex04: OK | ex05: OK | ex06: KO | ex07: Timeout | ex08: OK</td>
 <td>ex07: Not sure what a timeout error is. From deeptrace, all the tests pass and provide the correct solution. Maybe the solution is too inefficient and there is some upper ceiling of allowed compute time even if it passes all the tests?</td>
 </tr>
 
 <tr valign = "top">
 <td>C06 - Submission 1</td>
-<td>70%</td>
+<td>70% (pass)</td>
 <td>ex00: OK | ex01: OK | ex02: OK | ex03: KO</td>
 <td>ex03: ?? Not sure. Will need to do more debugging as to why this failed</td>
 </tr>
