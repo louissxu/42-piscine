@@ -6,13 +6,11 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 17:52:55 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/07 20:49:39 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/07 20:59:43 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
-#include <string.h>
 
 int	ft_strcmp(char *s1, char *s2)
 {
