@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 17:52:55 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/07 20:42:46 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/07 20:49:39 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 #include <stdio.h>
 #include <string.h>
 
-int ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
-	while(*s1 && *s2 && *s1 == *s2)
+	while (*s1 && *s2 && *s1 == *s2)
 	{
 		s1++;
 		s2++;
 	}
-	return(*s1 - *s2);
+	return (*s1 - *s2);
 }
 
 void	insertion_sort(char **tab, int tab_len)
@@ -35,7 +35,7 @@ void	insertion_sort(char **tab, int tab_len)
 	while (i < tab_len - 1)
 	{
 		j = i;
-		cur_lowest = i;	
+		cur_lowest = i;
 		while (j < tab_len)
 		{
 			if (ft_strcmp(tab[i], tab[j]) > ft_strcmp(tab[i], tab[cur_lowest]))
@@ -47,7 +47,6 @@ void	insertion_sort(char **tab, int tab_len)
 		tmp = tab[cur_lowest];
 		tab[cur_lowest] = tab[i];
 		tab[i] = tmp;
-		
 		i++;
 	}
 }
@@ -62,9 +61,9 @@ void	print_str(char *s)
 	write(1, "\n", 1);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	int i;
+	int	i;
 
 	insertion_sort(&argv[1], argc - 1);
 	i = 1;

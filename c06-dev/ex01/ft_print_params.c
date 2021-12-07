@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 17:37:32 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/07 17:40:21 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/07 20:47:51 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 int	main(int argc, char **argv)
 {
-	int i;
+	int	i;
 
 	i = 1;
-
 	while (i < argc)
 	{
-		while(*argv[i])
+		while (*argv[i])
 		{
 			write(1, argv[i], 1);
 			argv[i]++;
