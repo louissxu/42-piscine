@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:48:17 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/07 17:03:41 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/07 17:15:16 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int	accept(int *state)
 	return (1);
 }
 
+/*
 int	first(int *state, int *active_cell)
 {
 	if (*active_cell >= 9)
@@ -69,6 +70,7 @@ int	next(int *state, int *active_cell)
 	state[*active_cell]++;
 	return (1);
 }
+*/
 
 int	output(int *state, int *solution_count)
 {
@@ -93,11 +95,12 @@ int	output(int *state, int *solution_count)
 	return (1);
 }
 
+/*
 int	ten_queen_backtrack(int *solution, int *active_cell, int *solution_count)
 {
 	int	more_solutions;
 
-	more_solutions = 0;
+	more_solutions = 1;
 	if (reject(solution, active_cell))
 		return (0);
 	if (accept(solution))
@@ -107,6 +110,34 @@ int	ten_queen_backtrack(int *solution, int *active_cell, int *solution_count)
 	{
 		ten_queen_backtrack(solution, active_cell, solution_count);
 		more_solutions = next(solution, active_cell);
+	}
+	return (1);
+}
+*/
+
+int	ten_queen_backtrack(int *solution, int *active_cell, int *solution_count)
+{
+	int	more_solutions;
+
+	more_solutions = 1;
+	if (reject(solution, active_cell))
+		return (0);
+	if (accept(solution))
+		output(solution, solution_count);
+	if (*active_cell >= 9)
+		return (0);
+	*active_cell += 1;
+	solution[*active_cell] = 0;
+	while (more_solutions)
+	{
+		ten_queen_backtrack(solution, active_cell, solution_count);
+		if (solution[*active_cell] >= 9)
+		{
+			solution[*active_cell] = -1;
+			*active_cell -= 1;
+			return (0);
+		}
+		solution[*active_cell]++;
 	}
 	return (1);
 }
