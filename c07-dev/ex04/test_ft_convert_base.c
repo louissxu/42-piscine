@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "ft_convert_base.c"
+#include "ft_convert_base2.c"
 
 int main(void)
 {
