@@ -3,7 +3,7 @@
 
 int main(void)
 {
-	char** results = ft_split("hello worldreallylonasfkeljfklasefjlksaejfl;saefklsjflksjlksfegword man    a    stuff", " o");
+	char** results = ft_split("hello world stuff this-part-was-separated-by-hyphens", " -");
 	while(*results)
 	{
 		printf("pointer: %p. string contents: %s\n", *results, *results);
