@@ -58,8 +58,18 @@ int main(void)
 	printf("Range's pointer: %p\n", *r3);
 	print_range(*r3, r3_size);
 
+	printf("--------------------\n");
+	printf("Checking range(1, 1)\n");
+	int* r4p = NULL;
+	int** r4 = &r4p;
+	int r4_size = ft_ultimate_range(r4, 1, 1);
+	printf("size of range (return val): %d\n", r4_size);
+	printf("Range's pointer: %p\n", *r4);
+	print_range(*r4, r4_size);
+
 	free(*r0);
 	free(*r1);
 	free(*r2);
 	free(*r3);
+	free(*r4);
 }
