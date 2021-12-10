@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 17:01:57 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/09 11:35:08 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/10 12:29:53 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,48 +17,35 @@ int			check_base(char *base);
 int			get_digit_value(char c, char *base);
 long int	ft_atoi_base(char *str, char *base, int radix);
 
-char	*ft_itoa_base_recursive(long int n, char *base, int radix)
+int	memory_needed(long int val, int radix)
 {
-	char	*result;
-	int		len;
+	int	char_count;
 
-	if (n / radix == 0)
+	char_count = 2;
+	if (val < 0)
 	{
-		result = (char *)malloc(2 * sizeof(char));
-		result[0] = base[n];
-		result[1] = '\0';
-		return (result);
+		char_count++;
+		val = val * (-1);
 	}
-	result = ft_itoa_base_recursive(n / radix, base, radix);
-	len = 0;
-	while (result[len])
+	while (val / radix)
 	{
-		len++;
+		char_count++;
+		val = val / radix;
 	}
-	result = realloc(result, (len + 2) * sizeof(char));
-	result[len] = base[n % radix];
-	result[len + 1] = '\0';
-	return (result);
+	return (char_count);
 }
 
-char	*add_prefix_minus(char *nbr)
+void	ft_itoa_base_recursive2(long int val, char *result, char *base, \
+		int insert_location)
 {
-	int		nbr_len;
-	char	*result;
+	int	digit_val;
+	int	radix;
 
-	nbr_len = 0;
-	while (nbr[nbr_len])
-	{
-		nbr_len++;
-	}
-	result = realloc(nbr, (nbr_len + 2));
-	while (nbr_len >= 0)
-	{
-		result[nbr_len + 1] = result[nbr_len];
-		nbr_len--;
-	}
-	result[0] = '-';
-	return (result);
+	radix = check_base(base);
+	digit_val = val % radix;
+	result[insert_location] = base[digit_val];
+	if (val / radix)
+		ft_itoa_base_recursive2(val / radix, result, base, insert_location - 1);
 }
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
@@ -67,25 +54,21 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	int			radix_to;
 	long int	value;
 	char		*result;
+	int			to_size;
 
 	radix_from = check_base(base_from);
 	radix_to = check_base(base_to);
 	if (radix_from == 0 || radix_to == 0)
 		return (NULL);
 	value = ft_atoi_base(nbr, base_from, radix_from);
-	if (value == 0)
+	to_size = memory_needed(value, radix_to);
+	result = (char *)malloc(sizeof(char) * to_size);
+	if (value < 0)
 	{
-		result = malloc(2 * sizeof(char));
-		result[0] = base_to[0];
-		result[1] = '\0';
-		return (result);
+		result[0] = '-';
+		value = value * -1;
 	}
-	if (value > 0)
-	{
-		result = ft_itoa_base_recursive(value, base_to, radix_to);
-		return (result);
-	}
-	result = ft_itoa_base_recursive(value * -1, base_to, radix_to);
-	result = add_prefix_minus(result);
+	result[to_size - 1] = '\0';
+	ft_itoa_base_recursive2(value, result, base_to, to_size - 2);
 	return (result);
 }
