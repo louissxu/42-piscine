@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 20:26:12 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/09 11:55:52 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/10 13:50:54 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	insert_word(char **results_array, char *str, int word_start, int word_end)
 	int		i;
 	char	*word;
 
-	word = (char *)malloc((word_end - word_start) * sizeof(char));
+	word = (char *)malloc((word_end - word_start + 1) * sizeof(char));
 	i = 0;
 	while (word_start < word_end)
 	{
@@ -60,6 +60,7 @@ int	insert_word(char **results_array, char *str, int word_start, int word_end)
 		word_start++;
 		i++;
 	}
+	word[i] = '\0';
 	results_array[0] = word;
 	return (word_start);
 }
