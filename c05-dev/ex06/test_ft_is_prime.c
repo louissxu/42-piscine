@@ -3,8 +3,8 @@
 
 int main(void)
 {
-	int not_primes[] = {0, 1, 2, 4, 6, 12, 50, 100, 9999};
-	int primes[] = {3, 5, 7, 11, 13, 17, 223, 2777, 4127};
+	int not_primes[] = {0, 1, 4, 6, 8, 9, 12, 50, 100, 9999};
+	int primes[] = {2, 3, 5, 7, 11, 13, 17, 223, 2777, 4127};
 
 	printf("--------------------------------------\n");
 	printf("Testing not primes. Return should be 0\n");
