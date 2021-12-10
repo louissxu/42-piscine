@@ -50,3 +50,64 @@ The [project] folder is my "submission" folder of files in the state that I am s
 </table>
 
 I haven't gotten around to it but I'll add which exercises passed/failed at some stage (or you can come up and ask me lol)
+
+## Exams
+Questions I got from the exams
+
+<table border = "1" cellpadding = "4" cellspacing = "0">
+<thead><tr>
+<th align = "left">Exam</th>
+<th>Exam questions</th>
+<th>Comments</th></th>
+</tr></thead>
+<tbody>
+
+<tr valign = "top">
+<td>Exam 00</td>
+<td>
+    <ol start="0">
+        <li>only_a</li>
+        <li>ft_print_numbers</li>
+        <li>maff_alpha</li>
+        <li>ft_swap</li>
+        <li>ft_strcpy</li>
+        <li>ft_atoi</li>
+    </ol>
+</td>
+<td>Questions were worth 16 points, except the last one which was worth 20.</td>
+</tr>
+
+<tr valign = "top">
+<td>Exam 01</td>
+<td>
+    <ol start="0">
+        <li>only_z</li>
+        <li>ft_strlen</li>
+        <li>rot_13</li>
+        <li>wdmatch</li>
+        <li>ft_range</li>
+        <li>ft_split</li>
+    </ol>
+</td>
+<td>Introduction to argument parsing in rot_13. Adds dynamic memory allocation in ft_range.</td>
+</tr>
+
+<tr valign = "top">
+<td>Exam 02</td>
+<td>
+    <ol start="0">
+        <li>aff_a</li>
+        <li>ft_strlen</li>
+        <li>ulstr</li>
+        <li>last_word</li>
+        <li>ft_atoi</li>
+        <li>ft_rrange</li>
+        <li>sort_list</li>
+    </ol>
+</td>
+<td>Sort list adds structs/user defined types. Also adds passing a function as an argument to another function. Asks for implementation of a linked list after being given a comparator function. This exam also had 7 questions. First 6 were worth 14 points. Last question was worth 16 points.</td>
+</tr>
+
+</tbody>
+</tbody>
+</table>
