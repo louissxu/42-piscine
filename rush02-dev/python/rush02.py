@@ -11,25 +11,28 @@ def main():
         print("Usage: python3 rush02.py [dict_name] number")
         return ()
         
-    # ft_atoi equivalent
-    number = int(sys.argv[1])
-    
     if (argc == 2):
-        dictionary = parse_file(default_dictionary)
-        print_whole_number(number)
+        number_string = sys.argv[1]
+        # ft_atoi equivalent
+        number = int(number_string)
     
     if (argc == 3):
-        number = int(sys.argv[2])
-        # Parse default dictionary, then
-        # Parse special dictionary?
-        special_number_found = print_special_number(number)
-        if (not special_number_found):
-            print_whole_number(number)
+        number_string = sys.argv[2]
+        # ft_atoi equivalent
+        number = int(number_string)
+        special_dictionary_string = sys.argv[1]
+        special_dictionary = parse_file(special_dictionary_string)
+        special_number_found = print_special_number(number, special_dictionary)
+        if special_number_found:
+            return ()
+    
+    # Question: Will the special dictionary have all the regular entries as well (and we only use the special dictionary) or will it have only the special values and we still use the regular dictionary if we have to fall back on regular parsing?
 
+    dictionary = parse_file(default_dictionary)
+    print_whole_number(number, dictionary)
     
 
-
-def print_single_digit(number, has_prior_data):
+def print_single_digit(number, has_prior_data, lut_dict):
     '''Prints a single digit number
     
     Given a single digit number (0-9). Prints the corresponding word for that number.
@@ -40,13 +43,13 @@ def print_single_digit(number, has_prior_data):
     # Early returns if the number is zero and does nothing (you don't want it to print "zero" unless it is the case where the whole number is just zero which is already caught in the initial entry function. In the recursive calls (which this is primarily used for) you want to print /nothing/ if you come across a zero as it is likely from a 000 triplet or similar)
     if number == 0:
         return ()
-    number_word = default_lookup[number]
+    number_word = lut_dict[number]
     if (has_prior_data):
         print("_")
     print(f"{number_word}")
     
 
-def print_double_digit(number, has_prior_data):
+def print_double_digit(number, has_prior_data, lut_dict):
     '''Prints a two digit number
 
     Given a two digit number (00-99). Prints the corresponding words for that number.
@@ -56,7 +59,7 @@ def print_double_digit(number, has_prior_data):
     '''
     # First handle the digits alone and the special "teens cases"
     if (number > 0 and number < 20):
-        combined_word = default_lookup[number]
+        combined_word = lut_dict[number]
         if (has_prior_data):
             print("_")
         print(f"{combined_word}")
@@ -65,7 +68,7 @@ def print_double_digit(number, has_prior_data):
     if (number >= 20):
         # Pull out and print the tens value's digit (twenty, thirty, forty, etc).
         tens_value = number // 10 * 10
-        tens_word = default_lookup[tens_value]
+        tens_word = lut_dict[tens_value]
         if (has_prior_data):
             print("_")
         print(f"{tens_word}")
@@ -73,9 +76,9 @@ def print_double_digit(number, has_prior_data):
 
         # Then get single digit and print the single digit by calling single digit printer.
         ones_value = number % 10
-        print_single_digit(ones_value, has_prior_data)
+        print_single_digit(ones_value, has_prior_data, lut_dict)
 
-def print_triple_digit(number, has_prior_data):
+def print_triple_digit(number, has_prior_data, lut_dict):
     '''Prints a three digit number
 
     Given a three digit number (000-999) Prints the corresponding words for that number. 
@@ -99,11 +102,11 @@ def print_triple_digit(number, has_prior_data):
         if (has_prior_data):
             print_comma()    
         hundreds_value = number // 100 * 100
-        print_single_digit(hundreds_value // 100, has_prior_data)
+        print_single_digit(hundreds_value // 100, has_prior_data, lut_dict)
         
         # ... then the word "hundred"
         hundred = 100 # I chose not to hard code this look up so if they want us to replace the word "hundred" with something else, we can easily
-        hundreds_word = default_lookup[hundred]
+        hundreds_word = lut_dict[hundred]
         print("_")
         print(f"{hundreds_word}")
         
@@ -118,14 +121,14 @@ def print_triple_digit(number, has_prior_data):
             print("_")
             print("and")
         # Then call print_double_digit
-        print_double_digit(double_digit_num, has_prior_data)
+        print_double_digit(double_digit_num, has_prior_data, lut_dict)
 
 def print_comma():
     '''Prints a comma'''
     # Prints a comma /without/ a space. The space will be added by the prefix add from the regular triplet handling
     print(f",")
 
-def print_multiplier(multiplier):
+def print_multiplier(multiplier, lut_dict):
     '''Prints the multiplier word
     
     Given a multiplier, looks for it in the value: words dictionary and prints the multiplier word.
@@ -138,11 +141,11 @@ def print_multiplier(multiplier):
     # Early return and don't print multiplier if multiplier is 1
     if multiplier == 1:
         return ()
-    multiplier_word = default_lookup[multiplier]
+    multiplier_word = lut_dict[multiplier]
     print("_") # This one always prints prefix space as the only way you end up here is if there was a word printed before.
     print(f"{multiplier_word}")
     
-def process_triplet(number, multiplier, has_prior_data):
+def process_triplet(number, multiplier, has_prior_data, lut_dict):
     ''' Recursively processes triplets
 
     Processes number with head recursion. If the number is higher than a triplet (>=1000) then it recursively calls itself with a multiplier 1000 higher. Then after the higher triplets are processed it handles the lowest triplet.
@@ -160,7 +163,7 @@ def process_triplet(number, multiplier, has_prior_data):
     # Head recursion to send off any amount higher than the lowest 999 to be handled by the next call
     # Also, sets updates has_prior_data flag to be passed into the print_triple_digit function
     if (number >= 1000):
-        process_triplet(number // 1000, multiplier * 1000, has_prior_data)
+        process_triplet(number // 1000, multiplier * 1000, has_prior_data, lut_dict)
         has_prior_data = 1
     
     # Gets the lowest three digits
@@ -168,8 +171,8 @@ def process_triplet(number, multiplier, has_prior_data):
     
     # Calls the function to print the triple digits, /if/ there is anything to print (ie if this triplet is 000 then don't call/print anything).
     if (triple_digit_num > 0):
-        print_triple_digit(triple_digit_num, has_prior_data)
-        print_multiplier(multiplier)
+        print_triple_digit(triple_digit_num, has_prior_data, lut_dict)
+        print_multiplier(multiplier, lut_dict)
 
 def print_negative():
     '''Prints the word "negative"'''
@@ -177,7 +180,7 @@ def print_negative():
     print(f"negative")
     print("_")
 
-def print_whole_number(number):
+def print_whole_number(number, lut_dict):
     '''Prints a number's value in words
 
     Ie 123 outputs "one hundred and twenty three"
@@ -190,7 +193,7 @@ def print_whole_number(number):
     '''
     # Special handling for the value zero to print out the word "zero"
     if number == 0:
-        zero_word = default_lookup[number]
+        zero_word = lut_dict[number]
         print(f"{zero_word}")
         return(0)
 
@@ -200,10 +203,10 @@ def print_whole_number(number):
         number = number * -1
 
     # Start the recursive processing on the number. Seed the multiplier with 1. Seeds "has_prior_data with 0"
-    process_triplet(number, 1, 0)
+    process_triplet(number, 1, 0, lut_dict)
 
-def print_special_number(number):
-    string_to_print = special_lookup.get(number, None)
+def print_special_number(number, lut_dict):
+    string_to_print = lut_dict.get(number, None)
     if string_to_print:
         print(string_to_print)
         return (1)
