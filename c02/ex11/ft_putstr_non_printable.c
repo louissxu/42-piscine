@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 02:19:24 by lxu               #+#    #+#             */
-/*   Updated: 2021/11/30 22:26:58 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/12 00:03:20 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	is_printable(char c)
 {
-	if (c < ' ' || c > '~')
+	if ((c >= 0 && c <= 31) || c == 127)
 	{
 		return (0);
 	}
@@ -54,6 +54,6 @@ void	ft_putstr_non_printable(char *str)
 		{
 			print_escaped_char(*str);
 		}
-	str++;
+		str++;
 	}	
 }
