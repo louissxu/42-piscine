@@ -6,10 +6,13 @@
 /*   By: jthiele <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 08:46:02 by jthiele           #+#    #+#             */
-/*   Updated: 2021/12/11 09:02:51 by jthiele          ###   ########.fr       */
+/*   Updated: 2021/12/11 16:37:40 by tford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+
+//cum loop fix
 unsigned int	atoui(char *string)
 {
 	int				i;
@@ -17,16 +20,18 @@ unsigned int	atoui(char *string)
 
 	i = 0;
 	result = 0;
-	if (string[i])
+	if (*string)
 	{
-		while (string[i] >= '0' && string[i] <= '9' && string[i])
+		while (*string >= '0' && *string <= '9' && *string)
 		{
 			result *= 10;
-			result += string[i] - '0';
-			i++;
+			result += *string - '0';
+			string++;
 		}
-		if (string[i])
+		if (*string)
+		{
 			result = 0;
+		}
 	}
 	return (result);
 }
