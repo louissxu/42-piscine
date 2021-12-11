@@ -5,7 +5,7 @@ int main(void)
 {
 	printf("Test string: \"HELLO\"        (1): %d\n", ft_str_is_uppercase("HELLO"));
 	printf("Test string: \"\" (empty str) (1): %d\n", ft_str_is_uppercase(""));
-	printf("Test string: \"hello\"        (0): %d\n", ft_str_is_uppercase("hello123"));
+	printf("Test string: \"hello123\"     (0): %d\n", ft_str_is_uppercase("hello123"));
 	printf("Test string: \"123\"          (0): %d\n", ft_str_is_uppercase("123"));
 	printf("Test string: \" \"            (0): %d\n", ft_str_is_uppercase(" "));
 	printf("Test string: \"!@#\"          (0): %d\n", ft_str_is_uppercase("!@#"));

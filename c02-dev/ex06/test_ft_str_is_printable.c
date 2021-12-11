@@ -5,7 +5,7 @@ int main(void)
 {
 	printf("Test string: \"HELLO\"        (1): %d\n", ft_str_is_printable("HELLO"));
 	printf("Test string: \"\" (empty str) (1): %d\n", ft_str_is_printable(""));
-	printf("Test string: \"hello\"        (1): %d\n", ft_str_is_printable("hello123"));
+	printf("Test string: \"hello123\"     (1): %d\n", ft_str_is_printable("hello123"));
 	printf("Test string: \"123\"          (1): %d\n", ft_str_is_printable("123"));
 	printf("Test string: \" \"            (1): %d\n", ft_str_is_printable(" "));
 	printf("Test string: \"!@#\"          (1): %d\n", ft_str_is_printable("!@#"));

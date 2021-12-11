@@ -15,7 +15,7 @@ int main(void)
 	ft_strupcase(test2);
 	printf("Test string: \"h 123 i\"      Result: %s\n", test2);
 
-	char test3[] = "H !@# !@# i";
+	char test3[] = "h !@# !@# i";
 	printf("Test string: \"h !@# !@# i\"  Result: %s\n", test3);
 
 	printf("Input pointer should match returned pointer\n");
