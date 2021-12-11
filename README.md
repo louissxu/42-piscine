@@ -18,6 +18,30 @@ The [project] folder is my "submission" folder of files in the state that I am s
 <tbody>
 
 <tr valign = "top">
+<td>C02 - Submission 1</td>
+<td>5% (fail)</td>
+<td>ex00: OK | ex01: KO | ex02: OK | ex03: OK | ex04: OK | ex05: OK | ex06: OK | ex07: OK | ex08: OK | ex09: OK | ex10: KO | ex11: KO | ex12: KO</td>
+<td>
+    <ul>
+        <li>ex02: Need to null terminate up to the expected n bytes. Not just put a single null terminator.</li>
+    </ul>
+</td>
+</tr>
+
+<tr valign = "top">
+<td>C02 - Submission 2</td>
+<td>65% (pass)</td>
+<td>ex00: OK | ex01: OK | ex02: OK | ex03: OK | ex04: OK | ex05: OK | ex06: OK | ex07: OK | ex08: OK | ex09: OK | ex10: KO | ex11: KO | ex12: KO</td>
+<td>
+    <ul>
+        <li>ex10: To match inbuilt implementation, need to only null terminate once, not the full n bytes. Fixed.</li>
+        <li>ex11: Unsure. But switched the non-printable check to only consider known non printables as such (in case they pass an unsigned char and use the extended ascii array. Fixed if this is the issue.</li>
+        <li>ex12: Returning addr pointer after moving the pointer around. No longer points to start of memory being printed. Fixed.</li>
+    </ul>
+</td>
+</tr>
+
+<tr valign = "top">
 <td>C04 - Submission 1</td>
 <td>70% (pass)</td>
 <td>ex00: OK | ex01: OK | ex02: OK | ex03: OK | ex04: KO | ex05: OK</td>
