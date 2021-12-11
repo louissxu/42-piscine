@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 17:19:35 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/01 13:49:12 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/12 00:07:08 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,8 @@ void	print_combined_data_line(char *ptr, int bytes)
 
 void	*ft_print_memory(void *addr, unsigned int size)
 {
-	int	bytes_to_print;
-	int	offset;
+	int				bytes_to_print;
+	unsigned int	offset;
 
 	offset = 0;
 	while (size > 0)
