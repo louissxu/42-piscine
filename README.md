@@ -41,6 +41,7 @@ The [project] folder is my "submission" folder of files in the state that I am s
 <td>ex00: OK | ex01: OK | ex02: OK | ex03: OK | ex04: OK | ex05: OK | ex06: KO | ex07: Timeout | ex08: OK</td>
 <td>
     <ul>
+        <li>ex06: Forgot that 2 is prime</li>
         <li>ex07: Not sure what the timeout error is from. From deeptrace, all the tests pass and provide the correct solution. Maybe the solution is too inefficient and there is some upper ceiling of allowed compute time even if it passes all the tests?</li>
     </ul>
 </td>
