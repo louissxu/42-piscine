@@ -193,15 +193,6 @@ def print_whole_number(number):
         zero_word = default_lookup[number]
         print(f"{zero_word}")
         return(0)
-<<<<<<< Updated upstream
-    process_triplet(input_number, 1)
-
-print_whole_number(input_number)
-
-# handle negatives
-# handle commas
-# handle spaces
-=======
 
     # Handle negative values by printing "negative" and inverting value
     if number < 0:
@@ -287,4 +278,3 @@ if __name__ == "__main__":
 #     21: "blah",
 #     42: "the meaning of life, the universe, and everthing",
 # }
->>>>>>> Stashed changes
