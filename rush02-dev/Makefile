@@ -6,7 +6,7 @@
 #    By: jthiele <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/12 16:48:07 by jthiele           #+#    #+#              #
-#    Updated: 2021/12/12 17:25:56 by jthiele          ###   ########.fr        #
+#    Updated: 2021/12/12 20:35:26 by tford            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 SOURCE = src/
 
 #all our functions and main i.e. ft_this ft_that
-SRC = ft_dict_get.c ft_is_colon.c ft_is_newline.c ft_is_numeric.c ft_is_printable.c ft_is_sign.c ft_is_space.c ft_print_comma.c ft_print_double_digit.c ft_print_error.c ft_print_multiplier.c ft_print_negative.c ft_print_newline.c ft_print_single_digit.c ft_print_space.c ft_print_special_number.c ft_print_triple_digit.c ft_print_whole_number.c ft_process_triplet.c ft_putchar.c ft_putstr.c
+SRC = ft_atoli.c ft_dict_get.c ft_dict_handler.c ft_file_to_string.c ft_is_colon.c ft_is_newline.c ft_is_numeric.c ft_is_printable.c ft_is_sign.c ft_is_space.c ft_print_comma.c ft_print_double_digit.c ft_print_error.c ft_print_multiplier.c ft_print_negative.c ft_print_newline.c ft_print_single_digit.c ft_print_space.c ft_print_special_number.c ft_print_triple_digit.c ft_print_whole_number.c ft_process_triplet.c ft_putchar.c ft_putstr.c ft_string_to_dict_arr.c
 
 #cleaning
 OBJS = ${addprefix ${SOURCE},${SRCS:.c=.o}}

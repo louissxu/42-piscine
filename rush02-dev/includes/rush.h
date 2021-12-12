@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 14:54:36 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/12 19:59:41 by jthiele          ###   ########.fr       */
+/*   Updated: 2021/12/12 20:42:30 by tford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct s_dict
 	char		*value;
 }	t_dict;
 
+long int	ft_atoli(char *str);
 char	*ft_dict_get(t_dict *lut_dict, long int num);
 int		ft_is_colon(char c);
 int		ft_is_newline(char c);
@@ -41,5 +42,8 @@ void	ft_process_triplet(long int num, long int multiplier, \
 		int is_first_el, t_dict *lut_dict);
 void	ft_putchar(const char c);
 void	ft_putstr(char *str);
+int		ft_string_to_dict_arr(char *str, t_dict **dict);
+int		ft_file_to_string(char *file_name, char **str_ptr);
+
 
 #endif
