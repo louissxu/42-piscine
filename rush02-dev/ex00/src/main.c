@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 23:30:55 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/12 23:58:15 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/13 00:21:48 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	main(int argc, char **argv)
 	if (argc > 3 || argc < 2)
 	{
 		ft_putstr("Usage: ./rush-02 [file.dict] number");
-		ft_print_space();
+		ft_print_newline();
 		return (0);
 	}
 	if (argc == 2)
