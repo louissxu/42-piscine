@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoui.c                                            :+:      :+:    :+:   */
+/*   ft_is_space.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jthiele <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/11 08:46:02 by jthiele           #+#    #+#             */
-/*   Updated: 2021/12/11 09:02:51 by jthiele          ###   ########.fr       */
+/*   Created: 2021/12/12 16:31:34 by jthiele           #+#    #+#             */
+/*   Updated: 2021/12/12 18:12:16 by tford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	atoui(char *string)
+int	ft_is_space(char c)
 {
-	int				i;
-	unsigned int	result;
-
-	i = 0;
-	result = 0;
-	if (string[i])
+	if (c == '\t' || c == '\n'
+		|| c == '\v' || c == '\f'
+		|| c == '\r' || c == ' ')
 	{
-		while (string[i] >= '0' && string[i] <= '9' && string[i])
-		{
-			result *= 10;
-			result += string[i] - '0';
-			i++;
-		}
-		if (string[i])
-			result = 0;
+		return (1);
 	}
-	return (result);
+	return (0);
 }
