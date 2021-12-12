@@ -6,14 +6,14 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 22:54:23 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/12 22:58:57 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/13 00:03:10 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush.h"
 #include <stdlib.h>
 
-void ft_destroy_dict(t_dict *dict)
+void	ft_destroy_dict(t_dict *dict)
 {
 	free(dict);
 }
