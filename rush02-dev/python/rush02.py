@@ -45,8 +45,8 @@ def print_single_digit(number, has_prior_data, lut_dict):
         return ()
     number_word = lut_dict[number]
     if (has_prior_data):
-        print("_")
-    print(f"{number_word}")
+        print_space()
+    print(f"{number_word}", end = "")
     
 
 def print_double_digit(number, has_prior_data, lut_dict):
@@ -61,8 +61,8 @@ def print_double_digit(number, has_prior_data, lut_dict):
     if (number > 0 and number < 20):
         combined_word = lut_dict[number]
         if (has_prior_data):
-            print("_")
-        print(f"{combined_word}")
+            print_space()
+        print(f"{combined_word}", end = "")
         
     # Handle double digits that can be split (not teens).
     if (number >= 20):
@@ -70,8 +70,8 @@ def print_double_digit(number, has_prior_data, lut_dict):
         tens_value = number // 10 * 10
         tens_word = lut_dict[tens_value]
         if (has_prior_data):
-            print("_")
-        print(f"{tens_word}")
+            print_space()
+        print(f"{tens_word}", end = "")
         has_prior_data = 1
 
         # Then get single digit and print the single digit by calling single digit printer.
@@ -107,8 +107,8 @@ def print_triple_digit(number, has_prior_data, lut_dict):
         # ... then the word "hundred"
         hundred = 100 # I chose not to hard code this look up so if they want us to replace the word "hundred" with something else, we can easily
         hundreds_word = lut_dict[hundred]
-        print("_")
-        print(f"{hundreds_word}")
+        print_space()
+        print(f"{hundreds_word}", end = "")
         
         # Since we printed something, override the has_prior_data flag to 1
         has_prior_data = 1
@@ -118,15 +118,19 @@ def print_triple_digit(number, has_prior_data, lut_dict):
     if (double_digit_num):
         # If there was prior data, print preceeding word "and"
         if (has_prior_data):
-            print("_")
-            print("and")
+            print_space()
+            print("and", end = "")
         # Then call print_double_digit
         print_double_digit(double_digit_num, has_prior_data, lut_dict)
 
 def print_comma():
     '''Prints a comma'''
     # Prints a comma /without/ a space. The space will be added by the prefix add from the regular triplet handling
-    print(f",")
+    print(f",", end = "")
+
+def print_space():
+    '''Prints a space'''
+    print(f" ", end = "")
 
 def print_multiplier(multiplier, lut_dict):
     '''Prints the multiplier word
@@ -142,8 +146,8 @@ def print_multiplier(multiplier, lut_dict):
     if multiplier == 1:
         return ()
     multiplier_word = lut_dict[multiplier]
-    print("_") # This one always prints prefix space as the only way you end up here is if there was a word printed before.
-    print(f"{multiplier_word}")
+    print_space() # This one always prints prefix space as the only way you end up here is if there was a word printed before.
+    print(f"{multiplier_word}", end = "")
     
 def process_triplet(number, multiplier, has_prior_data, lut_dict):
     ''' Recursively processes triplets
@@ -177,8 +181,8 @@ def process_triplet(number, multiplier, has_prior_data, lut_dict):
 def print_negative():
     '''Prints the word "negative"'''
     # Unlike the rest of the functions, this one intentionally has trailing space
-    print(f"negative")
-    print("_")
+    print(f"negative", end = "")
+    print_space()
 
 def print_whole_number(number, lut_dict):
     '''Prints a number's value in words
@@ -194,7 +198,7 @@ def print_whole_number(number, lut_dict):
     # Special handling for the value zero to print out the word "zero"
     if number == 0:
         zero_word = lut_dict[number]
-        print(f"{zero_word}")
+        print(f"{zero_word}", end = "")
         return(0)
 
     # Handle negative values by printing "negative" and inverting value
@@ -204,6 +208,7 @@ def print_whole_number(number, lut_dict):
 
     # Start the recursive processing on the number. Seed the multiplier with 1. Seeds "has_prior_data with 0"
     process_triplet(number, 1, 0, lut_dict)
+    print("") # Print a new line
 
 def print_special_number(number, lut_dict):
     string_to_print = lut_dict.get(number, None)
