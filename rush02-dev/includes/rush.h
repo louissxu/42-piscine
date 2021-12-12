@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 14:54:36 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/12 15:13:38 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/12 15:54:31 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_dict
 char	*ft_dict_get(t_dict *lut_dict, long int num);
 void	ft_print_comma(void);
 void	ft_print_double_digit(long int num, int is_first_el, t_dict *lut_dict);
+void	ft_print_error(void);
 void	ft_print_multiplier(long int num, t_dict *lut_dict);
 void	ft_print_negative(void);
 void	ft_print_newline(void);
