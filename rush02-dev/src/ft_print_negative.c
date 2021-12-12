@@ -6,13 +6,13 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 14:30:39 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/12 14:31:31 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/12 15:02:50 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush.h"
 
-void	print_negative(void)
+void	ft_print_negative(void)
 {
 	ft_putstr("negative");
 	ft_print_space();
