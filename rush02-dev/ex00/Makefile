@@ -36,7 +36,7 @@ NORMINETTE = norminette
 NORMOBJS = ${addprefix ${SOURCE},${SRC}}
 
 .c.o:
-	${CC} ${CFLAGS} -I ${HEAD} -c $< -g -o ${<:.c=.o}
+	${CC} ${CFLAGS} -I ${HEAD} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
 	${CC} ${CFLAGS} $^ -o $@
