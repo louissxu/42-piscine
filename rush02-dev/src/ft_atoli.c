@@ -6,7 +6,7 @@
 /*   By: jthiele <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 08:46:02 by jthiele           #+#    #+#             */
-/*   Updated: 2021/12/12 19:25:56 by tford            ###   ########.fr       */
+/*   Updated: 2021/12/12 23:09:23 by tford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 long int	ft_atoli(char *string)
 {
-	int				i;
+	int			i;
 	long int	result;
 	long int	sign;
 
