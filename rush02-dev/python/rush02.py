@@ -19,7 +19,7 @@ def main():
     if (argc == 3):
         number_string = sys.argv[2]
         # ft_atoi equivalent
-        number = int(number_string)
+        number = int(number_string) 
         special_dictionary_string = sys.argv[1]
         special_dictionary = parse_file(special_dictionary_string)
         special_number_found = print_special_number(number, special_dictionary)
