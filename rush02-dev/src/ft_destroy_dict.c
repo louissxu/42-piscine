@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_special_number.c                          :+:      :+:    :+:   */
+/*   ft_destroy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/12 14:34:47 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/12 23:27:15 by lxu              ###   ########.fr       */
+/*   Created: 2021/12/12 22:54:23 by lxu               #+#    #+#             */
+/*   Updated: 2021/12/12 22:58:57 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush.h"
+#include <stdlib.h>
 
-int	ft_print_special_number(long int num, t_dict *lut_dict)
+void ft_destroy_dict(t_dict *dict)
 {
-	char	*word_ptr;
-
-	word_ptr = ft_dict_get(lut_dict, num);
-	if (word_ptr)
-	{
-		ft_putstr(word_ptr);
-		ft_print_newline();
-		return (1);
-	}
-	return (0);
+	free(dict);
 }
