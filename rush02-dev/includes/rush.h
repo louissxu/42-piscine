@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 14:54:36 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/12 23:21:11 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/13 00:07:18 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ int			ft_is_space(char c);
 void		ft_print_comma(void);
 void		ft_print_double_digit(long int num, \
 		int is_first_el, t_dict *lut_dict);
-void	ft_putstr(char *str);
-int		ft_string_to_dict_arr(char *str, t_dict **dict);
-int		ft_file_to_string(char *file_name, char **str_ptr);
-int		ft_check_number_string(char *str);
-int		ft_dict_handler(int state_flag, char *c);
-int		ft_parse_file(char *file_name, t_dict **dict, char **file_as_string);
-void	ft_print_dict_error(void);
-void	ft_destroy_dict(t_dict *dict);
+void		ft_putstr(char *str);
+int			ft_string_to_dict_arr(char *str, t_dict **dict);
+int			ft_file_to_string(char *file_name, char **str_ptr);
+int			ft_check_number_string(char *str);
+int			ft_dict_handler(int state_flag, char *c);
+int			ft_parse_file(char *file_name, t_dict **dict, char **file_as_string);
+void		ft_print_dict_error(void);
+void		ft_destroy_dict(t_dict *dict);
 void		ft_print_error(void);
 void		ft_print_negative(void);
 void		ft_print_newline(void);
@@ -56,7 +56,7 @@ int			ft_string_to_dict_arr(char *str, t_dict **dict);
 int			ft_file_to_string(char *file_name, char **str_ptr);
 int			ft_check_number_string(char *str);
 int			ft_dict_handler(int state_flag, char *c);
-int			ft_parse_file(char *file_name, t_dict **dict);
 void		ft_print_dict_error(void);
+void		ft_print_multiplier(long int multiplier, t_dict *lut_dict);
 
 #endif
