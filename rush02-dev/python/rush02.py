@@ -32,7 +32,7 @@ def main():
     print_whole_number(number, dictionary)
     
 
-def print_single_digit(number, has_prior_data, lut_dict):
+def print_single_digit(number, is_first_elem, lut_dict):
     '''Prints a single digit number
     
     Given a single digit number (0-9). Prints the corresponding word for that number.
@@ -44,12 +44,12 @@ def print_single_digit(number, has_prior_data, lut_dict):
     if number == 0:
         return ()
     number_word = lut_dict[number]
-    if (has_prior_data):
+    if (is_first_elem == 0):
         print_space()
     print(f"{number_word}", end = "")
     
 
-def print_double_digit(number, has_prior_data, lut_dict):
+def print_double_digit(number, is_first_elem, lut_dict):
     '''Prints a two digit number
 
     Given a two digit number (00-99). Prints the corresponding words for that number.
@@ -60,7 +60,7 @@ def print_double_digit(number, has_prior_data, lut_dict):
     # First handle the digits alone and the special "teens cases"
     if (number > 0 and number < 20):
         combined_word = lut_dict[number]
-        if (has_prior_data):
+        if (is_first_elem == 0):
             print_space()
         print(f"{combined_word}", end = "")
         
@@ -69,16 +69,16 @@ def print_double_digit(number, has_prior_data, lut_dict):
         # Pull out and print the tens value's digit (twenty, thirty, forty, etc).
         tens_value = number // 10 * 10
         tens_word = lut_dict[tens_value]
-        if (has_prior_data):
+        if (is_first_elem == 0):
             print_space()
         print(f"{tens_word}", end = "")
-        has_prior_data = 1
+        is_first_elem = 0
 
         # Then get single digit and print the single digit by calling single digit printer.
         ones_value = number % 10
-        print_single_digit(ones_value, has_prior_data, lut_dict)
+        print_single_digit(ones_value, is_first_elem, lut_dict)
 
-def print_triple_digit(number, has_prior_data, lut_dict):
+def print_triple_digit(number, is_first_elem, lut_dict):
     '''Prints a three digit number
 
     Given a three digit number (000-999) Prints the corresponding words for that number. 
@@ -93,16 +93,16 @@ def print_triple_digit(number, has_prior_data, lut_dict):
 
     Args:
         number (int): The three digit number in range 000-999
-        has_prior_data (int): Flag for whether this is the "highest" triplet or not.
-            0: no higher data. This is the "highest" triplet
-            1: has higher data. This is a in-the-middle triplet (and therefore prepend the joining words/commas)
+        is_first_elem (int): Flag for whether this is the "highest" triplet or not.
+            1: is the first element. This is the "highest" triplet
+            0: isn't the first element. This is a in-the-middle triplet (and therefore prepend the joining words/commas)
     '''
     # If number >99 then print hundreds digit
     if (number >= 100):
-        if (has_prior_data):
+        if (is_first_elem == 0):
             print_comma()    
         hundreds_value = number // 100 * 100
-        print_single_digit(hundreds_value // 100, has_prior_data, lut_dict)
+        print_single_digit(hundreds_value // 100, is_first_elem, lut_dict)
         
         # ... then the word "hundred"
         hundred = 100 # I chose not to hard code this look up so if they want us to replace the word "hundred" with something else, we can easily
@@ -110,18 +110,18 @@ def print_triple_digit(number, has_prior_data, lut_dict):
         print_space()
         print(f"{hundreds_word}", end = "")
         
-        # Since we printed something, override the has_prior_data flag to 1
-        has_prior_data = 1
+        # Since we printed something, override the is_first_elem flag to 0
+        is_first_elem = 0
 
     # Handling of the lesser two digits
     double_digit_num = number % 100
     if (double_digit_num):
         # If there was prior data, print preceeding word "and"
-        if (has_prior_data):
+        if (is_first_elem == 0):
             print_space()
             print("and", end = "")
         # Then call print_double_digit
-        print_double_digit(double_digit_num, has_prior_data, lut_dict)
+        print_double_digit(double_digit_num, is_first_elem, lut_dict)
 
 def print_comma():
     '''Prints a comma'''
@@ -149,7 +149,7 @@ def print_multiplier(multiplier, lut_dict):
     print_space() # This one always prints prefix space as the only way you end up here is if there was a word printed before.
     print(f"{multiplier_word}", end = "")
     
-def process_triplet(number, multiplier, has_prior_data, lut_dict):
+def process_triplet(number, multiplier, is_first_elem, lut_dict):
     ''' Recursively processes triplets
 
     Processes number with head recursion. If the number is higher than a triplet (>=1000) then it recursively calls itself with a multiplier 1000 higher. Then after the higher triplets are processed it handles the lowest triplet.
@@ -165,17 +165,17 @@ def process_triplet(number, multiplier, has_prior_data, lut_dict):
         multiplier (int): The multiplier of this triplet (eg 1000, 1000000, 1000000000). This is used to keep track of which multiplier word to print when the time comes.
     '''
     # Head recursion to send off any amount higher than the lowest 999 to be handled by the next call
-    # Also, sets updates has_prior_data flag to be passed into the print_triple_digit function
+    # Also, sets updates is_first_elem flag to be passed into the print_triple_digit function
     if (number >= 1000):
-        process_triplet(number // 1000, multiplier * 1000, has_prior_data, lut_dict)
-        has_prior_data = 1
+        process_triplet(number // 1000, multiplier * 1000, is_first_elem, lut_dict)
+        is_first_elem = 0
     
     # Gets the lowest three digits
     triple_digit_num = number % 1000
     
     # Calls the function to print the triple digits, /if/ there is anything to print (ie if this triplet is 000 then don't call/print anything).
     if (triple_digit_num > 0):
-        print_triple_digit(triple_digit_num, has_prior_data, lut_dict)
+        print_triple_digit(triple_digit_num, is_first_elem, lut_dict)
         print_multiplier(multiplier, lut_dict)
 
 def print_negative():
@@ -206,8 +206,8 @@ def print_whole_number(number, lut_dict):
         print_negative()
         number = number * -1
 
-    # Start the recursive processing on the number. Seed the multiplier with 1. Seeds "has_prior_data with 0"
-    process_triplet(number, 1, 0, lut_dict)
+    # Start the recursive processing on the number. Seed the multiplier with 1. Seeds "is_first_elem with 1"
+    process_triplet(number, 1, 1, lut_dict)
     print("") # Print a new line
 
 def print_special_number(number, lut_dict):
