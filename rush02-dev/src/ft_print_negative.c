@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_print_negative.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/12 11:59:06 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/12 12:00:31 by lxu              ###   ########.fr       */
+/*   Created: 2021/12/12 14:30:39 by lxu               #+#    #+#             */
+/*   Updated: 2021/12/12 14:31:31 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush.h"
-#include <unistd.h>
 
-void	ft_putchar(const char c)
+void	print_negative(void)
 {
-	write(1, &c, 1);
+	ft_putstr("negative");
+	ft_print_space();
 }
