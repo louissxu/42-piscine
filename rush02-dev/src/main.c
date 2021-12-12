@@ -6,13 +6,12 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 19:50:37 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/12 20:35:11 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/12 22:39:30 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rush02.c"
-
-#define REFERENCE_DICT_STRING = "numbers.dict"
+#include "rush.h"
+#include <stdlib.h>
 
 int	main(int argc, char **argv)
 {
@@ -22,6 +21,8 @@ int	main(int argc, char **argv)
 	int			error_code;
 	t_dict		*dict;
 
+	dict_string = NULL;
+	dict = NULL;
 	if (argc > 3 || argc < 2)
 	{
 		ft_putstr("Usage: ./rush-02 [file.dict] number");
@@ -31,7 +32,6 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		number_string = argv[1];
-		dict_string = NULL;
 	}
 	if (argc == 3)
 	{
@@ -43,11 +43,13 @@ int	main(int argc, char **argv)
 	{
 		ft_print_error();
 		return (0);
-	num = ft_atoli(num_string)
+	}
+	num = ft_atoli(number_string);
 
+	
 	if (dict_string)
 	{
-		error_code = ft_parse_file(dict_string, dict)
+		error_code = ft_parse_file(dict_string, &dict);
 		{
 			if (error_code == 0)
 			{
@@ -60,13 +62,14 @@ int	main(int argc, char **argv)
 		}
 	}
 
-	dict_string = REFERENCE_DICT_STRING;
+	dict_string = "numbers.dict";
 
-	error_code = ft_parse_file(dict_string, dict);
+	error_code = ft_parse_file(dict_string, &dict);
 	if (error_code == 0)
 	{
 		return (0);
 	}
-	ft_print_whole_numer(number, dict)
+
+	ft_print_whole_number(num, dict);
 	return (0);
 }

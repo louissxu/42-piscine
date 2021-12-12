@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 14:54:36 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/12 20:42:30 by tford            ###   ########.fr       */
+/*   Updated: 2021/12/12 22:35:22 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ void	ft_putchar(const char c);
 void	ft_putstr(char *str);
 int		ft_string_to_dict_arr(char *str, t_dict **dict);
 int		ft_file_to_string(char *file_name, char **str_ptr);
-
+int		ft_check_number_string(char *str);
+int		ft_dict_handler(int state_flag, char *c);
+int		ft_parse_file(char *file_name, t_dict **dict);
+void	ft_print_dict_error(void);
 
 #endif
