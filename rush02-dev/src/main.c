@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 19:50:37 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/12 20:33:15 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/12 20:35:11 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,16 +70,3 @@ int	main(int argc, char **argv)
 	ft_print_whole_numer(number, dict)
 	return (0);
 }
-
-int	ft_parse_file(char *file_name, t_dict *dict)
-{
-	int		error_code;
-	char	*file_as_string;
-
-	error_code = ft_file_to_string(file_name, &file_as_string);
-	if (error_code == 0)
-	{
-		ft_print_dict_error();
-		return (0);
-	}
-
