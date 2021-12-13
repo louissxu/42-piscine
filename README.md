@@ -101,6 +101,26 @@ The [project] folder is my "submission" folder of files in the state that I am s
 <td></td>
 </tr>
 
+<tr valign = "top">
+<td>C08 - Submission 1</td>
+<td>0% (fail)</td>
+<td>ex00: OK | ex01: OK | ex02: OK | ex03: Norme error | ex04: Norme error | ex05: Norme error</td>
+<td>
+    <ul>
+        <li>ex03: Forgot to norm</li>
+        <li>ex04: Forgot to norm</li>
+        <li>ex05: Forgot to norm</li>
+    </ul>
+</td>
+</tr>
+
+<tr valign = "top">
+<td>C08 - Submission 2</td>
+<td>100% (pass)</td>
+<td>ex00: OK | ex01: OK | ex02: OK | ex03: OK | ex04: OK | ex05: OK</td>
+<td></td>
+</tr>
+
 </tbody>
 </tbody>
 </table>
