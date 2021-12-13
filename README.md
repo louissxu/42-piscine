@@ -161,7 +161,7 @@ Questions I got from the exams
         <li>sort_list</li>
     </ol>
 </td>
-<td>Sort list adds structs/user defined types. Also adds passing a function as an argument to another function. Asks for implementation of a linked list after being given a comparator function. This exam also had 7 questions. First 6 were worth 14 points. Last question was worth 16 points.</td>
+<td>Sort list adds structs/user defined types. Also adds passing a function as an argument to another function. Asks for implementation of a linked list sort after being given a comparator function. This exam also had 7 questions. First 6 were worth 14 points. Last question was worth 16 points.</td>
 </tr>
 
 </tbody>
