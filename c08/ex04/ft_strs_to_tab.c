@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 18:21:57 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/13 18:49:57 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/13 22:51:44 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	ft_strlen(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (*str)
@@ -26,12 +26,12 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char *ft_strdup(char *str)
+char	*ft_strdup(char *str)
 {
-	char *str_cpy;
-	int i;
+	char	*str_cpy;
+	int		i;
 
-	str_cpy = malloc(sizeof *str * (ft_strlen(str) + 1));
+	str_cpy = malloc(sizeof(*str) * (ft_strlen(str) + 1));
 	i = 0;
 	while (str[i])
 	{
@@ -42,13 +42,12 @@ char *ft_strdup(char *str)
 	return (str_cpy);
 }
 
-
-struct s_stock_str *ft_strs_to_tab(int ac, char **av)
+struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
-	t_stock_str *result;
-	int i;
+	t_stock_str	*result;
+	int			i;
 
-	result = malloc(sizeof *result * (ac + 1));
+	result = malloc(sizeof(*result) * (ac + 1));
 	if (result == NULL)
 	{
 		return (result);

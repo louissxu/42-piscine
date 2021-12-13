@@ -6,16 +6,17 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 18:19:06 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/13 18:19:07 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/13 22:48:25 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_POINT_H
 # define FT_POINT_H
 
-typedef struct s_point {
-	int x;
-	int y;
-} t_point;
+typedef struct s_point
+{
+	int	x;
+	int	y;
+}	t_point;
 
 #endif
