@@ -6,11 +6,11 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 00:36:35 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/14 01:13:30 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/15 15:13:02 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.c>
+#include <stdlib.h>
 
 int	in_set(char c, char *set)
 {
@@ -32,7 +32,7 @@ int word_count(char *str, char *sep)
 	count = 0;
 	while (*str)
 	{
-		if ((in_set(*str, sep) == 0 && in_set(*(str + 1), sep) == 1) \
+		if ((in_set(*str, sep) == 0 && in_set(*(str + 1), sep) == 1) || \
 			(in_set(*str, sep) == 0 && *(str + 1) == '\0'))
 		{
 			count++;
@@ -49,11 +49,12 @@ char	*dupe_word(char *str, char *sep)
 	int		i;
 
 	len = 0;
-	while (in_set(str[i], sep) == 0)
+	while (in_set(str[len], sep) == 0)
 	{
 		len++;
 	}
 	word_cpy = malloc(sizeof(*word_cpy) * (len + 1));
+	i = 0;
 	while (i < len)
 	{
 		word_cpy[i] = str[i];
