@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 00:36:35 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/15 15:15:35 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/15 16:59:12 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*dupe_word(char *str, char *sep)
 	int		i;
 
 	len = 0;
-	while (in_set(str[len], sep) == 0)
+	while (in_set(str[len], sep) == 0 && str[len])
 	{
 		len++;
 	}
