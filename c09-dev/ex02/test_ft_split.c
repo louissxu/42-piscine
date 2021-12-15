@@ -15,7 +15,7 @@ void print_all_words(char **tab)
 int main(void)
 {
 	char *long_string = "hello wooorld, this is a long string";
-	char *sep = " o";
+	char *sep = " ";
 
 	char **result = ft_split(long_string, sep);
 	print_all_words(result);
