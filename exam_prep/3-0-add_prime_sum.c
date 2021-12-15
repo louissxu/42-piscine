@@ -1,5 +1,4 @@
 #include <unistd.h>
-#include <stdio.h>
 
 int is_prime(int n)
 {
@@ -56,6 +55,7 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	
+#include <stdio.h>
 	int n = ft_atoi(argv[1]);
 
 	int i = 0;
