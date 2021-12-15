@@ -6,7 +6,7 @@
 /*   By: lxu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 00:36:35 by lxu               #+#    #+#             */
-/*   Updated: 2021/12/15 15:13:02 by lxu              ###   ########.fr       */
+/*   Updated: 2021/12/15 15:15:35 by lxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	in_set(char c, char *set)
 	return (0);
 }
 
-int word_count(char *str, char *sep)
+int	word_count(char *str, char *sep)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (*str)
