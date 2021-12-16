@@ -132,11 +132,17 @@ The [project] folder is my "submission" folder of files in the state that I am s
 </td>
 </tr>
 
+<tr valign = "top">
+<td>C09 - Submission 2</td>
+<td>100% (fail)</td>
+<td>ex00: OK | ex01: OK | ex02: OK</td>
+<td>
+</td>
+</tr>
+
 </tbody>
 </tbody>
 </table>
-
-I haven't gotten around to it but I'll add which exercises passed/failed at some stage (or you can come up and ask me lol)
 
 ## Exams
 Questions I got from the exams
