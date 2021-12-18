@@ -158,6 +158,7 @@ Questions I got from the exams
 
 <tr valign = "top">
 <td>Exam 00</td>
+<td>100% (pass)</td>
 <td>
     <ol start="0">
         <li>only_a</li>
