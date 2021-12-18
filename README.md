@@ -150,6 +150,7 @@ Questions I got from the exams
 <table border = "1" cellpadding = "4" cellspacing = "0">
 <thead><tr>
 <th align = "left">Exam</th>
+<th>Moulinette Grade</th>
 <th>Exam questions</th>
 <th>Comments</th></th>
 </tr></thead>
@@ -172,6 +173,7 @@ Questions I got from the exams
 
 <tr valign = "top">
 <td>Exam 01</td>
+<td>100% (pass)</td>
 <td>
     <ol start="0">
         <li>only_z</li>
@@ -187,6 +189,7 @@ Questions I got from the exams
 
 <tr valign = "top">
 <td>Exam 02</td>
+<td>100% (pass)</td>
 <td>
     <ol start="0">
         <li>aff_a</li>
@@ -201,6 +204,32 @@ Questions I got from the exams
 <td>Sort list adds structs/user defined types. Also adds passing a function as an argument to another function. Asks for implementation of a linked list sort after being given a comparator function. This exam also had 7 questions. First 6 were worth 14 points. Last question was worth 16 points.</td>
 </tr>
 
+<tr valign = "top">
+<td>Exam 03</td>
+<td>90% (pass)</td>
+<td>
+    <ol start="0">
+        <li>aff_a</li>
+        <li>ft_countdown</li>
+        <li>ft_strlen</li>
+        <li>buzzfizz</li>
+        <li>aff_first_param</li>
+        <li>rot_13</li>
+        <li>ft_strcmp</li>
+        <li>ft_strrev</li>
+        <li>ft_atoi</li>
+        <li>union</li>
+        <li>ft_range</li>
+        <li>ft_split</li>
+        <li>count_alpha</li>
+        <li>ord_alphlong</li>
+        <li>infin_multi</li>
+    </ol>
+</td>
+<td>Exam is 8 hours rather than the 4 previously. However, I had to start late so I only had 5 hours to complete the exam. Questions are worth 6 points except for the last question which is worth 10 points. Ran out of time, completed the second to last question but only had <5 minutes left for the final question so was unable to make an attempt.
+   </td>
+</tr>
+    
 </tbody>
 </tbody>
 </table>
