@@ -1,8 +1,6 @@
 # 42-piscine
 
-###WORK IN PROGRESS###
-
-Repository of my progress in the 42Adel November Piscine 2021.
+Repository of my progress in the 42Adel November Piscine 2021. Piscine dates from 2021/11/22 to 2021/12/19.
 
 The [project]-dev folder is my working directory for my project where I build the project. If you want to follow my git commits/changes etc you can see them in this folder. This is generally the most up to date repo including any changes I have made after submission (if I decided not to resubmit it). This directory also includes files that I would like to keep but are not able to be submitted (the subject pdf's, my test files, etc).
 
