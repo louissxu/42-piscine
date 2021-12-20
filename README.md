@@ -125,7 +125,7 @@ The [project] folder is my "submission" folder of files in the state that I am s
 <td>ex00: OK | ex01: OK | ex02: Segmentation fault</td>
 <td>
     <ul>
-        <li>ex02: Didn't handle the situation when the separators string is empty</li>
+        <li>ex02: Didn't handle the situation when the separators string is empty.</li>
     </ul>
 </td>
 </tr>
