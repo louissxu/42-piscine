@@ -15,6 +15,28 @@ The [project] folder is my "submission" folder of files in the state that I am s
 </tr></thead>
 <tbody>
 
+
+<tr valign = "top">
+<td>Shell00 - Submission 1</td>
+<td>10% (fail)</td>
+<td>ex00: OK | ex01: OK | ex02: KO | ex03: OK | ex04: KO | ex05: OK | ex06: OK | ex07: OK | ex08: OK | ex09: OK</td>
+<td>
+    <ul>
+        <li>ex02: Fix timestamp. Accidentally changed timestamp while trying to change timestamp of link. Didn't realise I'd changed the timestamp of the destination file.</li>
+        <li>ex04: Add extra flags to ls command. Though vague in specification (and specifically says "do not do what is not asked") it wants extra flags to add a / to directories and to change sort by date type.</li>
+    </ul>
+</td>
+</tr>
+    
+
+<tr valign = "top">
+<td>Shell00 - Submission 2</td>
+<td>100% (pass)</td>
+<td>ex00: OK | ex01: OK | ex02: OK | ex03: OK | ex04: OK | ex05: OK | ex06: OK | ex07: OK | ex08: OK | ex09: OK</td>
+<td>
+</td>
+</tr>
+    
 <tr valign = "top">
 <td>C02 - Submission 1</td>
 <td>5% (fail)</td>
